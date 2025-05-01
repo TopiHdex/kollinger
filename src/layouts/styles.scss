@@ -1,0 +1,33 @@
+nav {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.125rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  height: 60px;
+
+  .links {
+    display: flex;
+    gap: 6rem;
+
+    a {
+      color: black;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease-in-out;
+
+      &.active {
+        font-weight: bold;
+      }
+
+      &:hover {
+        border-color: black;
+      }
+    }
+  }
+}

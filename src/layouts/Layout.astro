@@ -1,5 +1,6 @@
 ---
 import '../styles/global.scss';
+import './styles.scss';
 ---
 <!doctype html>
 <html lang="en">
@@ -11,6 +12,14 @@ import '../styles/global.scss';
 		<title>Kollinger</title>
 	</head>
 	<body>
+        <nav>
+            <p>KOLLINGER KUNST/TECHNIK</p>
+            <div class="links">
+                <a href="/referenzen" class="active">REFERENZEN</a>
+                <a href="/karriere">KARRIERE</a>
+                <a href="/kontakt">KONTAKT</a>
+            </div>
+        </nav>
 		<slot />
 	</body>
 </html>
