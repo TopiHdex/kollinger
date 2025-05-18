@@ -1,0 +1,134 @@
+#container {
+  padding-top: 60px;
+
+  .description {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+    .art-title {
+      font-weight: bold;
+      color: black;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .more {
+      color: rgb(100, 100, 100);
+    }
+  }
+
+  .gallery {
+    display: grid;
+    padding: 9rem;
+    padding-top: 8rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+    row-gap: 4rem;
+    grid-template-areas:
+      "c1 c2 c3"
+      "c4 c4 c5"
+      "c6 c7 c7"
+      "c8 c9 cA"
+      "cB cB cC";
+    
+    .item {
+      .image {
+        width: 100%;
+        height: 550px;
+        object-fit: cover;
+      }
+
+      .item-body {
+        margin-top: 2.25rem;
+        border-top: 1px solid black;
+
+        .item-name {
+          color: black;
+          font-weight: bold;
+          margin-bottom: 0;
+        }
+
+        .item-desc {
+          margin: 0;
+          color: rgb(100, 100, 100);
+        }
+      }
+
+      &.c1 {
+        grid-area: c1;
+      }
+
+      &.c2 {
+        grid-area: c2;
+      }
+
+      &.c3 {
+        grid-area: c3;
+      }
+
+      &.c4 {
+        grid-area: c4;
+
+        .image {
+          aspect-ratio: 3/2;
+        }
+      }
+
+      &.c5 {
+        grid-area: c5;
+      }
+
+      &.c6 {
+        grid-area: c6;
+      }
+
+      &.c7 {
+        grid-area: c7;
+      }
+
+      &.c8 {
+        grid-area: c8;
+      }
+
+      &.c9 {
+        grid-area: c9;
+      }
+
+      &.cA {
+        grid-area: cA;
+      }
+
+      &.cB {
+        grid-area: cB;
+      }
+
+      &.cC {
+        grid-area: cC;
+      }
+    }
+  }
+}
+
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+#hero {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.cover-photo {
+  width: 100vw;
+  height: unset;
+}
