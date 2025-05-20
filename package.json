@@ -9,7 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
     "astro": "^5.7.10",
+    "gsap": "^3.13.0",
     "sass": "^1.87.0"
   },
   "devDependencies": {
