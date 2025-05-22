@@ -10,6 +10,7 @@ import Messing from '../assets/images/materials/messing.png';
 import Silber from '../assets/images/materials/silber.png';
 import Tombak from '../assets/images/materials/tombak.png';
 import Others from '../assets/images/materials/others.png';
+import Something from '../assets/images/der-kopf-3.jpeg';
 ---
 
 <Layout>
@@ -38,15 +39,22 @@ import Others from '../assets/images/materials/others.png';
         </div>
     </div>
     <div class="second-part">
+        <Image class="something" src={Something} alt="Image Something" />
         <div class="items">
             <div class="hoverable">
-                <div class="title">OBERFLÄCHENVEREDELUNG</div> 
+                <div class="title">
+                    OBERFLÄCHEN
+                    VEREDELUNG
+                </div> 
                 <div class="more">
                     von Patina über Komplexe Lackierungen bis hin zu vergoldung
                 </div>
             </div>
             <div class="hoverable">
-                <div class="title">EINZELANFERTIGUNGEN</div>
+                <div class="title">
+                    EINZEL
+                    ANFERTIGUNGEN
+                </div>
                 <div class="more">
                     sowie Klein- und vorserien im Sand- oder Feinguss
                 </div>
@@ -199,6 +207,30 @@ gsap.from(".second-part .hoverable", {
     ease: "power2.out"
 });
 
+const something = gsap.timeline({
+    scrollTrigger: {
+        scrub: true,
+        pin: true,
+        trigger: ".second-part .something",
+        start: "50% 50%",
+        endTrigger: ".second-part",
+        end: "bottom -10%",
+    },
+});
+something.fromTo(".second-part .something", {
+    opacity: 0,
+    scale: 1,
+    duration: 1,
+}, { opacity: 1, scale: 1.5, duration: 1, }).to(".second-part .something", {
+    scale: 2,
+    opacity: 1,
+    duration: 2,
+}).to(".second-part .something", {
+    scale: 2.5,
+    opacity: 0,
+    duration: 1,
+});
+
 const tl = gsap.timeline({
     scrollTrigger: {
         scrub: true,
@@ -206,7 +238,7 @@ const tl = gsap.timeline({
         trigger: ".second-part .items",
         start: "60% 40%",
         endTrigger: ".second-part",
-        end: "bottom 50%",
+        end: "bottom 90%",
     },
 });
 tl.from(".second-part .more", {
@@ -300,11 +332,18 @@ tlMaterials
 .second-part {
     padding-top: 150px;
     margin-bottom: 10rem;
-    height: 150vh;
+    height: 300vh;
+    position: relative;
+
+    img.something {
+        position: absolute;
+        top: -500px;
+    }
 
     .items {
         display: flex;
-        width: 100%;
+        width: 70%;
+        margin-left: 30%;
         justify-content: space-evenly;
         height: 135px;
 
