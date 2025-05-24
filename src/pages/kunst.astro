@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import Cover from '../assets/images/kust-cover.png';
 import CoverMaterials from '../assets/images/materials-cover.png';
 import Bronze from '../assets/images/materials/bronze.png';
 import Aluminum from '../assets/images/materials/aluminum.png';
@@ -11,6 +10,12 @@ import Silber from '../assets/images/materials/silber.png';
 import Tombak from '../assets/images/materials/tombak.png';
 import Others from '../assets/images/materials/others.png';
 import Something from '../assets/images/der-kopf-3.jpeg';
+import Slide1 from '../assets/images/slide-1.png';
+import Slide2 from '../assets/images/slide-2.png';
+import Slide3 from '../assets/images/slide-3.png';
+import Slide4 from '../assets/images/slide-4.png';
+import Slide5 from '../assets/images/slide-5.png';
+import Slide6 from '../assets/images/slide-6.png';
 ---
 
 <Layout>
@@ -134,6 +139,58 @@ import Something from '../assets/images/der-kopf-3.jpeg';
                     </div>
                     <p class="name">SONDERLEGIERUNGEN</p>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="fourth-part">
+        <div class="slider-cont">
+            <h2 class="header left"><span>REFERENZEN</span></h2>
+            <div class="slider-bg">
+                <div class="slider">
+                    <div class="slide c5">
+                        <Image class="image" src={Slide1} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image land" src={Slide2} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image" src={Slide3} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image land" src={Slide4} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image" src={Slide5} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image" src={Slide6} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -272,13 +329,26 @@ tlMaterials
     .add('start')
     .from(
         ".materials .materialsList",
-        { xPercent: -100, ease: "power2.out" },
+        { xPercent: -100, ease: "power3.inOut" },
+        'start'
     )
     .from(".materialsList .material", {
         scale: 0.8,
-        stagger: -0.1,
-        ease: "power2.out"
+        stagger: -0.15,
+        ease: "power2.inOut"
     }, "start");
+
+const tlSlider = gsap.timeline({
+    scrollTrigger: {
+        scrub: true,
+        pin: true,
+        trigger: ".slider-cont",
+        start: "50% 50%",
+        endTrigger: ".fourth-part",
+        end: "bottom 50%",
+    },
+});
+tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -190 });
 </script>
 
 <style>
@@ -332,7 +402,7 @@ tlMaterials
 .second-part {
     padding-top: 150px;
     margin-bottom: 10rem;
-    height: 300vh;
+    height: 600vh;
     position: relative;
 
     img.something {
@@ -374,7 +444,7 @@ tlMaterials
 }
 
 .third-part {
-    height: 300vh;
+    height: 600vh;
 
     .hero2 {
         height: 560px;
@@ -419,6 +489,52 @@ tlMaterials
     }
 }
 
+.fourth-part {
+    padding-top: 40vh;
+    height: 600vh;
+
+    .slider-bg {
+        background-color: #D9D0BE;
+        padding: 2rem 1.75rem;
+
+        .slider {
+            display: flex;
+            gap: 1rem;
+
+            .slide {
+                .image {
+                    height: 500px;
+                    width: unset !important;
+                    aspect-ratio: 3 / 4;
+                    object-fit: cover;
+
+                    &.land {
+                        aspect-ratio: 4 / 3;
+                    }
+                }
+
+                .item-body {
+                    margin-top: 2.25rem;
+                    border-top: 1px solid black;
+
+                    .item-name {
+                        color: black;
+                        font-weight: bold;
+                        margin-bottom: 0;
+                    }
+
+                    .item-desc {
+                        margin: 0;
+                        color: rgb(100, 100, 100);
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
 .header {
     position: relative;
     font-size: 4rem;
@@ -449,6 +565,15 @@ tlMaterials
         width: 100%;
         border-bottom: 1px solid black;
         margin: auto 0;
+    }
+
+    &.left {
+        text-align: start;
+
+        span {
+            right: unset;
+            left: 0;
+        }
     }
 }
 
