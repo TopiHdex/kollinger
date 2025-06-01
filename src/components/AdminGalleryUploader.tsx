@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { initializeApp, type FirebaseOptions } from 'firebase/app';
-import { getFirestore, collection, addDoc, doc, deleteDoc, onSnapshot } from 'firebase/firestore';
-import { getStorage } from 'firebase/storage';
+import { collection, addDoc, doc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import {
     ref,
     uploadBytes,
@@ -9,22 +7,14 @@ import {
     deleteObject
 } from "firebase/storage";
 import "./AdminGalleryUploader.scss";
+import { useAuth } from '../utils/useAuth';
+import Login from './Login';
+import { db, storage } from '../lib/firebaseClient';
 
-const firebaseConfig: FirebaseOptions = {
-    apiKey: import.meta.env.PUBLIC_API_KEY,
-    authDomain: import.meta.env.PUBLIC_AUTH_DOMAIN,
-    projectId: import.meta.env.PUBLIC_PROJECT_ID,
-    storageBucket: import.meta.env.PUBLIC_STORAGE_BUCKET,
-    appId: import.meta.env.PUBLIC_APP_ID,
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const storage = getStorage(app);
 
 const ALL_POSITIONS = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA", "cB", "cC"];
 
-export default function AdminGalleryUploader() {
+function AdminGalleryUploader() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [columnSpan, setColumnSpan] = useState(1);
@@ -186,3 +176,14 @@ export default function AdminGalleryUploader() {
         </>
     );
 }
+
+export default function ProtectedUploader() {
+  const { user, loading } = useAuth();
+    console.log('hola');
+
+  if (loading) return <p>Loading...</p>;
+  if (!user) return <Login />;
+
+  return <AdminGalleryUploader />;
+}
+
