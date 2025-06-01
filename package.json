@@ -9,17 +9,19 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
     "@studio-freight/lenis": "^1.0.42",
+    "@types/react-dom": "^19.1.5",
     "astro": "^5.7.10",
     "firebase": "^11.8.1",
     "firebase-admin": "^13.4.0",
     "gsap": "^3.13.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "sass": "^1.87.0",
-    "uploadthing": "^7.7.2"
+    "sass": "^1.87.0"
   },
   "devDependencies": {
+    "@types/react": "^19.1.6",
     "typescript": "^5.8.3"
   }
 }

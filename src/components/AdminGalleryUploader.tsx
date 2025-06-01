@@ -1,0 +1,192 @@
+import React, { useState, useEffect } from 'react';
+import { initializeApp, type FirebaseOptions } from 'firebase/app';
+import { getFirestore, collection, addDoc, doc, deleteDoc, onSnapshot } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+import {
+    ref,
+    uploadBytes,
+    getDownloadURL,
+    deleteObject
+} from "firebase/storage";
+import "./AdminGalleryUploader.scss";
+
+const firebaseConfig: FirebaseOptions = {
+    apiKey: import.meta.env.PUBLIC_API_KEY,
+    authDomain: import.meta.env.PUBLIC_AUTH_DOMAIN,
+    projectId: import.meta.env.PUBLIC_PROJECT_ID,
+    storageBucket: import.meta.env.PUBLIC_STORAGE_BUCKET,
+    appId: import.meta.env.PUBLIC_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+const ALL_POSITIONS = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA", "cB", "cC"];
+
+export default function AdminGalleryUploader() {
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [aspectRatio, setAspectRatio] = useState("3/4");
+    const [columnSpan, setColumnSpan] = useState(1);
+    const [uploadFile, setUploadFile] = useState<File | null>(null);
+    const [previewImage, setPreviewImage] = useState("");
+    const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
+    const [galleryItems, setGalleryItems] = useState<any[]>([]);
+
+    useEffect(() => {
+        const unsubscribe = onSnapshot(collection(db, "gallery"), (snapshot) => {
+            const items = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+
+            // Sort by position for consistent layout
+            const POSITION_ORDER = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA", "cB", "cC"];
+            const sorted = POSITION_ORDER
+            .map((pos) => items.find((item) => item.position === pos))
+            .filter(Boolean);
+
+            setGalleryItems(sorted);
+        });
+
+        return () => unsubscribe(); // Clean up on unmount
+    }, []);
+
+    const handleUpload = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!uploadFile || !selectedPosition) return;
+
+        const storageRef = ref(storage, `gallery/${uploadFile.name}`);
+        await uploadBytes(storageRef, uploadFile);
+        const imageUrl = await getDownloadURL(storageRef);
+
+        await addDoc(collection(db, "gallery"), {
+            title,
+            description,
+            aspectRatio,
+            span: columnSpan,
+            imageUrl,
+            position: selectedPosition,
+        });
+
+        alert("Image uploaded!");
+
+        // Reset form
+        setTitle("");
+        setDescription("");
+        setAspectRatio("3/4");
+        setColumnSpan(1);
+        setUploadFile(null);
+        setPreviewImage("");
+        setSelectedPosition(null);
+    };
+
+    return (
+        <>
+            <h2>Upload New Gallery Image</h2>
+            <div className="admin-gallery-uploader">
+
+                <section className="preview-section">
+                    <h3>Select Grid Position</h3>
+                    <div className="grid-preview">
+                        {ALL_POSITIONS.map((pos) => {
+                            const existing = galleryItems.find((item) => item.position === pos);
+                            const isSelected = selectedPosition === pos;
+
+                            const handleClick = async () => {
+                                if (existing) {
+                                    const confirmDelete = window.confirm(
+                                        `Position "${pos}" is already occupied. Do you want to replace this image?`
+                                    );
+
+                                    if (!confirmDelete) return;
+
+                                    // Delete from storage
+                                    const imageRef = ref(storage, existing.imageUrl);
+                                    try {
+                                        await deleteObject(imageRef);
+                                    } catch (err) {
+                                        console.warn("Storage file not found or already deleted");
+                                    }
+
+                                    // Delete from Firestore
+                                    await deleteDoc(doc(db, "gallery", existing.id));
+
+                                    // Remove from local state
+                                    setGalleryItems((prev) => prev.filter((item) => item.id !== existing.id));
+                                }
+
+                                // Select the position for new upload
+                                setSelectedPosition(pos);
+                            };
+
+                            return (
+                                <div
+                                    key={pos}
+                                    className={`grid-cell ${isSelected ? "selected" : ""}`}
+                                    onClick={handleClick}
+                                    style={{
+                                        gridColumn: `span ${existing?.span || (isSelected ? columnSpan : 1)}`,
+                                    }}
+                                >
+                                    {existing ? (
+                                        <img src={existing.imageUrl} alt={existing.title} />
+                                    ) : isSelected && previewImage ? (
+                                            <img src={previewImage} alt="Preview" />
+                                        ) : (
+                                                <span>{pos}</span>
+                                            )}
+                                </div>
+                            );
+                        })}
+                    </div>
+                </section>
+
+                <section className="form-section">
+                    <div className="sticky">
+                        <h3>Image Details</h3>
+                        <form onSubmit={handleUpload}>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    const file = e.target.files?.[0];
+                                    if (file) {
+                                        setUploadFile(file);
+                                        const reader = new FileReader();
+                                        reader.onload = () => setPreviewImage(reader.result as string);
+                                        reader.readAsDataURL(file);
+                                    }
+                                }}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Title"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Description"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                            <select value={aspectRatio} onChange={(e) => setAspectRatio(e.target.value)}>
+                                <option value="3/4">3:4</option>
+                                <option value="4/3">4:3</option>
+                            </select>
+                            <select value={columnSpan} onChange={(e) => setColumnSpan(Number(e.target.value))}>
+                                <option value={1}>Span 1</option>
+                                <option value={2}>Span 2</option>
+                                <option value={3}>Span 3</option>
+                            </select>
+
+                            <button type="submit">Upload</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </>
+    );
+}
