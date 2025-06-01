@@ -1,0 +1,70 @@
+---
+import ProtectedLayout from "../../components/ProtectedLayout";
+import LogoutButton from "../../components/LogoutButton";
+import AdminLayout from "../../layouts/AdminLayout.astro";
+---
+
+<AdminLayout>
+    <ProtectedLayout client:only="react">
+        <main class="admin-dashboard">
+            <header>
+                <h1>Admin Dashboard</h1>
+                <LogoutButton client:only="react"/>
+            </header>
+
+            <section class="links">
+                <a href="/admin/gallery" class="card">📸 Manage Gallery</a>
+                <a href="/admin/jobs" class="card">🧳 Create Job Positions</a>
+            </section>
+        </main>
+
+        <style>
+        .admin-dashboard {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #222;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        h1 {
+            font-weight: 700;
+            font-size: 2.4rem;
+            color: #0070f3;
+            margin: 0.5rem 0;
+        }
+        .links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            flex: 1 1 250px;
+            background: #f0f4ff;
+            border-radius: 12px;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0070f3;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgb(0 112 243 / 0.15);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+            cursor: pointer;
+        }
+        .card:hover {
+            background: #e0ebff;
+            box-shadow: 0 8px 24px rgb(0 112 243 / 0.3);
+        }
+        </style>
+    </ProtectedLayout>
+</AdminLayout>

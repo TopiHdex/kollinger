@@ -7,14 +7,12 @@ import {
     deleteObject
 } from "firebase/storage";
 import "./AdminGalleryUploader.scss";
-import { useAuth } from '../utils/useAuth';
-import Login from './Login';
 import { db, storage } from '../lib/firebaseClient';
 
 
 const ALL_POSITIONS = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA", "cB", "cC"];
 
-function AdminGalleryUploader() {
+export default function AdminGalleryUploader() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [columnSpan, setColumnSpan] = useState(1);
@@ -176,14 +174,3 @@ function AdminGalleryUploader() {
         </>
     );
 }
-
-export default function ProtectedUploader() {
-  const { user, loading } = useAuth();
-    console.log('hola');
-
-  if (loading) return <p>Loading...</p>;
-  if (!user) return <Login />;
-
-  return <AdminGalleryUploader />;
-}
-
