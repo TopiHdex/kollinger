@@ -27,7 +27,6 @@ const ALL_POSITIONS = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA
 export default function AdminGalleryUploader() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [aspectRatio, setAspectRatio] = useState("3/4");
     const [columnSpan, setColumnSpan] = useState(1);
     const [uploadFile, setUploadFile] = useState<File | null>(null);
     const [previewImage, setPreviewImage] = useState("");
@@ -55,7 +54,10 @@ export default function AdminGalleryUploader() {
 
     const handleUpload = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!uploadFile || !selectedPosition) return;
+        if (!uploadFile || !selectedPosition) {
+            alert('You need to select a file and a position!');
+            return;
+        }
 
         const storageRef = ref(storage, `gallery/${uploadFile.name}`);
         await uploadBytes(storageRef, uploadFile);
@@ -64,7 +66,6 @@ export default function AdminGalleryUploader() {
         await addDoc(collection(db, "gallery"), {
             title,
             description,
-            aspectRatio,
             span: columnSpan,
             imageUrl,
             position: selectedPosition,
@@ -75,7 +76,6 @@ export default function AdminGalleryUploader() {
         // Reset form
         setTitle("");
         setDescription("");
-        setAspectRatio("3/4");
         setColumnSpan(1);
         setUploadFile(null);
         setPreviewImage("");
@@ -172,10 +172,6 @@ export default function AdminGalleryUploader() {
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                             />
-                            <select value={aspectRatio} onChange={(e) => setAspectRatio(e.target.value)}>
-                                <option value="3/4">3:4</option>
-                                <option value="4/3">4:3</option>
-                            </select>
                             <select value={columnSpan} onChange={(e) => setColumnSpan(Number(e.target.value))}>
                                 <option value={1}>Span 1</option>
                                 <option value={2}>Span 2</option>
