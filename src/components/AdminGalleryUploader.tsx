@@ -7,7 +7,7 @@ import {
     deleteObject
 } from "firebase/storage";
 import "./AdminGalleryUploader.scss";
-import { db, storage } from '../lib/firebaseClient';
+import { db, storage, type GalleryItem } from '../lib/firebaseClient';
 
 
 const ALL_POSITIONS = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA", "cB", "cC"];
@@ -19,20 +19,21 @@ export default function AdminGalleryUploader() {
     const [uploadFile, setUploadFile] = useState<File | null>(null);
     const [previewImage, setPreviewImage] = useState("");
     const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
-    const [galleryItems, setGalleryItems] = useState<any[]>([]);
+    const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
+    const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
     useEffect(() => {
         const unsubscribe = onSnapshot(collection(db, "gallery"), (snapshot) => {
-            const items = snapshot.docs.map((doc) => ({
+            const items: GalleryItem[] = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
-            }));
+            } as GalleryItem));
 
             // Sort by position for consistent layout
             const POSITION_ORDER = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA", "cB", "cC"];
             const sorted = POSITION_ORDER
-            .map((pos) => items.find((item) => item.position === pos))
-            .filter(Boolean);
+            .map((pos) => items.find((item) => item.position === pos as unknown as number))
+            .filter(Boolean) as GalleryItem[];
 
             setGalleryItems(sorted);
         });
@@ -79,7 +80,7 @@ export default function AdminGalleryUploader() {
                     <h3>Select Grid Position</h3>
                     <div className="grid-preview">
                         {ALL_POSITIONS.map((pos) => {
-                            const existing = galleryItems.find((item) => item.position === pos);
+                            const existing = galleryItems.find((item) => item.position === pos as unknown as number);
                             const isSelected = selectedPosition === pos;
 
                             const handleClick = async () => {
