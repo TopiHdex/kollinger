@@ -8,7 +8,7 @@ export interface GalleryItem {
     title: string;
     description: string;
     imageUrl: string;
-    position: number;
+    position: string;
     span: number;
     isHighlight: boolean;
 }
