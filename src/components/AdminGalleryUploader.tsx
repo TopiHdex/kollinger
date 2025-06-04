@@ -71,14 +71,26 @@ export default function AdminGalleryUploader() {
             }
 
             if (editingItem) {
-                // UPDATE existing item
                 const itemRef = doc(db, "gallery", editingItem.id);
+
+                // If a new image was uploaded, delete the old one
+                if (uploadFile && editingItem.imageUrl) {
+                    const oldImageRef = ref(storage, editingItem.imageUrl);
+                    try {
+                        await deleteObject(oldImageRef);
+                    } catch (err) {
+                        console.warn("Old image could not be deleted (already gone?)", err);
+                    }
+                }
+
+                // Update the Firestore document
                 await updateDoc(itemRef, {
                     title,
                     description,
                     span: columnSpan,
                     imageUrl,
                 });
+
                 alert("Image updated!");
             } else {
                 // ADD new item
@@ -90,6 +102,7 @@ export default function AdminGalleryUploader() {
                     position: selectedPosition,
                     highlighted: false,
                 });
+
                 alert("Image uploaded!");
             }
 
@@ -101,6 +114,7 @@ export default function AdminGalleryUploader() {
             setLoading(false);
         }
     };
+
 
     const toggleHighlight = async (item: GalleryItem) => {
         const currentHighlights = galleryItems.filter(i => i.isHighlight);
@@ -156,7 +170,7 @@ export default function AdminGalleryUploader() {
                                 >
                                     {existing ? (
                                         <>
-                                            <img src={existing.imageUrl} alt={existing.title} />
+                                            <img src={isSelected ? previewImage : existing.imageUrl} alt={existing.title} />
 
                                             <button
                                                 className={`highlight-button ${existing.isHighlight ? "active" : ""}`}
