@@ -1,6 +1,10 @@
 ---
 import '../styles/global.scss';
 import './styles.scss';
+
+const urlPath = Astro.request.url;
+const isKunst = urlPath.includes('/kunst');
+const isTechnik = urlPath.includes('/technik');
 ---
 <!doctype html>
 <html lang="en">
@@ -13,7 +17,11 @@ import './styles.scss';
 	</head>
 	<body>
         <nav>
-            <p>KOLLINGER <b>KUNST</b>/TECHNIK</p>
+            <p>
+                KOLLINGER
+                <a href="/kunst" class={`kunks ${isKunst ? 'bold' : ''}`}>KUNST</a>/
+                <a href="/technik" class={`technik ${isTechnik ? 'bold' : ''}`}>TECHNIK</a>
+            </p>
             <div class="links">
                 <a href="/referenzen" class="active">REFERENZEN</a>
                 <a href="/karriere">KARRIERE</a>
@@ -23,3 +31,4 @@ import './styles.scss';
 		<slot />
 	</body>
 </html>
+

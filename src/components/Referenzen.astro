@@ -1,0 +1,30 @@
+---
+import Cover from '../assets/images/cover.png';
+import Img1 from '../assets/images/1.png';
+import Img2 from '../assets/images/2.png';
+import Img3 from '../assets/images/3.png';
+import Img4 from '../assets/images/4.png';
+import { Image } from 'astro:assets';
+import DynamicGallery from './DynamicGallery.astro';
+import './styles.scss';
+---
+
+<div id="container">
+	<main>
+		<section id="hero">
+            <Image src={Cover} alt="Cover" class="cover-photo" />
+		</section>
+        <div class="description">
+            <p class="art-title">UNSERE REFERENZEN - QUALITAET, DIE UEBERZEUGT</p>
+            <p class="more">
+                Mit Praezision, Leidenschaft und Erfahrung realisieren wier
+                anspruchsvolle Projekte fuer Kuenstler, Unternehmen und
+                Institutionen welweit. Hier zeigen wier Ihnen ene Auswahl
+                unsere Arbeiten - jedes Stueck ein Beweis fuer unser
+                handwerkliches Koennen und usere Liebe zum Detail.
+            </p>
+        </div>
+
+        <DynamicGallery />
+	</main>
+</div>

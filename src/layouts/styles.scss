@@ -14,6 +14,14 @@ nav {
   z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
+  a {
+    color: black;
+
+    &.bold {
+      font-weight: bold;
+    }
+  }
+
   .links {
     display: flex;
     gap: 6rem;

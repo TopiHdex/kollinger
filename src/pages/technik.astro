@@ -1,0 +1,728 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import CoverMaterials from '../assets/images/materials-cover.png';
+import Bronze from '../assets/images/materials/bronze.png';
+import Aluminum from '../assets/images/materials/aluminum.png';
+import Zink from '../assets/images/materials/zink.png';
+import Messing from '../assets/images/materials/messing.png';
+import Silber from '../assets/images/materials/silber.png';
+import Tombak from '../assets/images/materials/tombak.png';
+import Others from '../assets/images/materials/others.png';
+import Something from '../assets/images/der-kopf-3.jpeg';
+import Slide1 from '../assets/images/slide-1.png';
+import Slide2 from '../assets/images/slide-2.png';
+import Slide3 from '../assets/images/slide-3.png';
+import Slide4 from '../assets/images/slide-4.png';
+import Slide5 from '../assets/images/slide-5.png';
+import Slide6 from '../assets/images/slide-6.png';
+import Leistungen from '../assets/images/leistungen.png';
+import KollingerIcon from '../assets/images/footer-icon.png';
+import Facebook from '../assets/images/icons/f.png';
+import Insta from '../assets/images/icons/i.png';
+import LinkedIn from '../assets/images/icons/l.png';
+import Pinterest from '../assets/images/icons/p.png';
+import YouTube from '../assets/images/icons/y.png';
+---
+
+<Layout>
+    <div class="hero">
+        <video class="image parallax" autoplay muted loop controls>
+            <source src="https://occ87lmc8c.ufs.sh/f/amuZeWyiXfpxXfHjg5bbHsP3C5tyvgx2ETmcLdIflAGwkZYi" type="video/mp4">
+        </video>
+    </div>
+    <div class="first-part">
+        <div class="left">
+            <h1 class="on-enter">UNSER KUNSTGUSS</h1>
+            <p class="on-enter">PRÄZISION FÜR KUNST</p>
+        </div>
+        <div class="right">
+            <p class="p1 on-enter">
+                Seit 1993 steht die Kunstgießerei Kollinger für höchste Qualität im Kunstguss
+                und technischen Feinguss. Mit einem feinen Gespür für Form und Material
+                garantieren wir die sorgfältige Bearbeitung und individuelle Behandlung jedes
+                Objekts – vom Unikat bis zur Kleinserie.
+            </p>
+            <p class="p2 on-enter">
+                Unsere Arbeitsprozesse sind flexibel, unsere Lösungen maßgeschneidert.
+                Ob filigrane Skulptur oder komplexer Prototyp – wir setzen Kundenwünsche
+                präzise um und passen uns dabei stets aktuellen Anforderungen und Trends an.
+            </p>
+        </div>
+    </div>
+    <div class="second-part">
+        <Image class="something" src={Something} alt="Image Something" />
+        <div class="items">
+            <div class="hoverable">
+                <div class="title">
+                    OBERFLÄCHEN
+                    VEREDELUNG
+                </div> 
+                <div class="more">
+                    von Patina über Komplexe Lackierungen bis hin zu vergoldung
+                </div>
+            </div>
+            <div class="hoverable">
+                <div class="title">
+                    EINZEL
+                    ANFERTIGUNGEN
+                </div>
+                <div class="more">
+                    sowie Klein- und vorserien im Sand- oder Feinguss
+                </div>
+            </div>
+            <div class="hoverable">
+                <div class="title">INDIVIDUELLES MODELL</div>
+                <div class="more">
+                    erstellen wir exakt nach ihrer vorlage
+                </div>
+            </div>
+            <div class="hoverable">
+                <div class="title">TECHNISCHE PROTOTYPEN</div>
+                <div class="more">
+                    vom Millimeter-Bauteil bis zur Grossplastik
+                </div>
+            </div>
+            <div class="hoverable">
+                <div class="title">MODELLE UND ABFORMUNGEN</div>
+                <div class="more">
+                    vom Millimeter-Bauteil bis zur Grossplastik
+                </div>
+            </div>
+            <div class="hoverable">
+                <div class="title">ERWEITERTE LEISTUNGEN</div>
+                <div class="more">
+                    wie Montage, technische Anpassungen oder Sonderanfertigungen
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="third-part">
+        <div class="hero2">
+            <Image class="image parallax" src={CoverMaterials} alt="Image 1" />
+        </div>
+        <div class="materials">
+            <h2 class="header"><span>UNSERE MATERIALIEN</span></h2>
+            <div class="materialsList">
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Bronze} alt="Image 1" />
+                    </div>
+                    <p class="name">Bronze</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Zink} alt="Image 1" />
+                    </div>
+                    <p class="name">Zink</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Messing} alt="Image 1" />
+                    </div>
+                    <p class="name">Messig</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Aluminum} alt="Image 1" />
+                    </div>
+                    <p class="name">Aluminium</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Silber} alt="Image 1" />
+                    </div>
+                    <p class="name">Silber</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Tombak} alt="Image 1" />
+                    </div>
+                    <p class="name">TOMBAK / SILIZIUMBRONZE</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Others} alt="Image 1" />
+                    </div>
+                    <p class="name">SONDERLEGIERUNGEN</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="fourth-part">
+        <div class="slider-cont">
+            <h2 class="header left"><span>REFERENZEN</span></h2>
+            <div class="slider-bg">
+                <div class="slider">
+                    <div class="slide c5">
+                        <Image class="image" src={Slide1} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image land" src={Slide2} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image" src={Slide3} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image land" src={Slide4} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image" src={Slide5} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                    <div class="slide c5">
+                        <Image class="image" src={Slide6} alt="Image 5" />
+                        <div class="item-body">
+                            <p class="item-name">ANANAS</p>
+                            <p class="item-desc">wo man es sehen kann?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fifth-part">
+        <div class="leistungen">
+            <h2 class="header"><span>UNSERE LEISTUNGEN</span></h2>
+            <div class="info">
+                <Image class="leistungen-img" src={Leistungen} alt="Image 5" />
+                <div class="info-right">
+                    <p class="info-head">VIELFALT IM METALLGUSS</p>
+                    <p>
+                        Ob filigraner Prototyp oder monumentale Skulptur – wir
+                        realisieren Ihre Ideen in hochwertigem Metallguss. Unsere
+                        Expertise ermöglicht maßgeschneiderte Lösungen, unabhängig
+                        von Größe, Komplexität oder Materialanforderung.
+                    </p>
+                    <p>
+                        Vertraulichkeit und der Schutz Ihrer kreativen Arbeit sind
+                        für uns selbstverständlich: Ihre Daten und Urheberrechte
+                        behandeln wir mit größter Sorgfalt.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final"></section>
+
+    <footer>
+        <Image class="kollingerIcon" src={KollingerIcon} alt="Kollinger Logo" />
+        <div class="social">
+            <p>FOLGT UNS</p>
+            <a href="">
+                <Image class="social-icon" src={Facebook} alt="Facebook Icon" />
+            </a>
+            <a href="">
+                <Image class="social-icon" src={Pinterest} alt="Pinterest Icon" />
+            </a>
+            <a href="">
+                <Image class="social-icon" src={Insta} alt="Instagram Icon" />
+            </a>
+            <a href="">
+                <Image class="social-icon" src={YouTube} alt="YouTube Icon" />
+            </a>
+            <a href="">
+                <Image class="social-icon" src={LinkedIn} alt="LinkedIn Icon" />
+            </a>
+        </div>
+        <div class="links">
+            <a href="">Kontakt</a>
+            <a href="">Datenschutz</a>
+            <a href="">Impressum</a>
+        </div>
+    </footer>
+</Layout>
+
+<script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from '@studio-freight/lenis';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const lenis = new Lenis();
+
+lenis.on('scroll', ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
+
+gsap.from(".on-enter", {
+    scrollTrigger: {
+        trigger: ".first-part",
+        start: "top 90%",
+        toggleActions: "play none none none",
+    },
+    y: 40,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 1,
+    ease: "power2.out"
+});
+
+gsap.to(".hero .parallax", {
+    scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+    },
+    y: 200,
+    filter: "blur(8px)",
+    scale: 1.01,
+});
+
+gsap.to(".first-part", {
+  scrollTrigger: {
+    trigger: ".first-part",
+    start: "top top",
+    end: "bottom top",
+    scrub: true
+  },
+  y: -100
+});
+
+gsap.from(".second-part .hoverable", {
+    scrollTrigger: {
+        trigger: ".second-part",
+        start: "top 65%",
+        end: "top 30%",
+        toggleActions: "play none none none",
+        scrub: true,
+    },
+    y: 40,
+    opacity: 0,
+    stagger: 0.15,
+    ease: "power2.out"
+});
+
+const something = gsap.timeline({
+    scrollTrigger: {
+        scrub: true,
+        pin: true,
+        trigger: ".second-part .something",
+        start: "50% 50%",
+        endTrigger: ".second-part",
+        end: "bottom -10%",
+    },
+});
+something.fromTo(".second-part .something", {
+    opacity: 0,
+    scale: 1,
+    duration: 1,
+}, { opacity: 1, scale: 1.5, duration: 1, }).to(".second-part .something", {
+    scale: 2,
+    opacity: 1,
+    duration: 2,
+}).to(".second-part .something", {
+    scale: 2.5,
+    opacity: 0,
+    duration: 1,
+});
+
+const tl = gsap.timeline({
+    scrollTrigger: {
+        scrub: true,
+        pin: true,
+        trigger: ".second-part .items",
+        start: "60% 40%",
+        endTrigger: ".second-part",
+        end: "bottom 90%",
+    },
+});
+tl.from(".second-part .more", {
+    y: 40,
+    opacity: 0,
+    stagger: 0.5,
+    ease: "power2.out"
+});
+
+gsap.to(".hero2 .parallax", {
+    scrollTrigger: {
+        trigger: ".hero2",
+        start: "top 50%",
+        end: "bottom top",
+        scrub: true
+    },
+    y: 100,
+});
+
+const tlMaterials = gsap.timeline({
+    scrollTrigger: {
+        scrub: true,
+        pin: true,
+        trigger: ".materials",
+        start: "50% 50%",
+        endTrigger: ".third-part",
+        end: "bottom 50%",
+    },
+});
+tlMaterials
+    .add('start')
+    .from(
+        ".materials .materialsList",
+        { xPercent: -100, ease: "power3.inOut" },
+        'start'
+    )
+    .from(".materialsList .material", {
+        scale: 0.8,
+        stagger: -0.15,
+        ease: "power2.inOut"
+    }, "start");
+
+const tlSlider = gsap.timeline({
+    scrollTrigger: {
+        scrub: true,
+        pin: true,
+        trigger: ".slider-cont",
+        start: "50% 50%",
+        endTrigger: ".fourth-part",
+        end: "bottom 50%",
+    },
+});
+tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
+</script>
+
+<style>
+.hero {
+    padding-top: 60px;
+    overflow: hidden;
+
+    .image {
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
+    }
+}
+
+.first-part {
+    display: grid;
+    grid-template-columns: 11fr 13fr;
+    gap: 2rem;
+    padding-top: 2rem;
+    background-color: white;
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    }
+
+    .right {
+        margin-top: 2.5rem;
+        border-top: 1px solid black;
+        padding: 2rem 4rem;
+
+        p {
+            max-width: 580px;
+        }
+    }
+}
+
+.second-part {
+    padding-top: 150px;
+    margin-bottom: 10rem;
+    height: 600vh;
+    position: relative;
+
+    img.something {
+        position: absolute;
+        top: -500px;
+    }
+
+    .items {
+        display: flex;
+        width: 70%;
+        margin-left: 30%;
+        justify-content: space-evenly;
+        height: 135px;
+
+        .hoverable {
+            flex-grow: 1;
+            border-right: 1px solid black;
+            padding: 1rem 0.5rem;
+            height: 1.125rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.75rem;
+
+            &:last-child {
+                border: 0;
+            }
+
+            .title {
+                font-weight: bold;
+            }
+
+            .more {
+                max-width: 190px;
+            }
+        }
+    }
+}
+
+.third-part {
+    height: 600vh;
+
+    .hero2 {
+        height: 560px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: calc(100% + 100px);
+            object-fit: cover;
+            transform: translateY(-120px);
+        }
+    }
+
+    .materials {
+        .materialsList {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1rem;
+            padding: 0 1.75rem;
+
+            .material {
+                width: 100%;
+
+                .materialImg {
+                    width: 100%;
+                    aspect-ratio: 1 / 1;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .name {
+                    font-weight: bold;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.fourth-part {
+    padding-top: 40vh;
+    height: 600vh;
+
+    .slider-bg {
+        overflow: hidden;
+        background-color: #D9D0BE;
+        padding: 2rem 1.75rem;
+
+        .slider {
+            display: flex;
+            gap: 1rem;
+
+            .slide {
+                .image {
+                    height: 500px;
+                    width: unset !important;
+                    aspect-ratio: 3 / 4;
+                    object-fit: cover;
+
+                    &.land {
+                        aspect-ratio: 4 / 3;
+                    }
+                }
+
+                .item-body {
+                    margin-top: 2.25rem;
+                    border-top: 1px solid black;
+
+                    .item-name {
+                        color: black;
+                        font-weight: bold;
+                        margin-bottom: 0;
+                    }
+
+                    .item-desc {
+                        margin: 0;
+                        color: rgb(100, 100, 100);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.fifth-part {
+    padding-top: 50vh;
+    height: 600vh;
+
+    .leistungen {
+
+        img.leistungen-img {
+            margin-top: calc(-3rem - 37px);
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+
+            .info-right {
+                .info-head {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.header {
+    position: relative;
+    font-size: 4rem;
+    font-weight: 300;
+    text-align: end;
+    padding: 3rem 0;
+    height: 75px;
+    margin: 0;
+
+    span {
+        background-color: white;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        padding: 0 1.75rem;
+        height: 75px;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 0px;
+        width: 100%;
+        border-bottom: 1px solid black;
+        margin: auto 0;
+    }
+
+    &.left {
+        text-align: start;
+
+        span {
+            right: unset;
+            left: 0;
+        }
+    }
+}
+
+.final {
+    height: 100vh
+}
+
+footer {
+    padding: 1rem;
+    padding-top: 0.25rem;
+    width: 100vw;
+    position: fixed;
+    bottom: -20px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: 0.3s cubic-bezier(0.485, -0.050, 0.285, 1.505);
+    display: grid;
+    grid-template-columns: 1fr 3fr 8fr;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+
+
+    &:hover {
+        bottom: 0;
+        padding-top: 1rem;
+    }
+
+    &:hover .kollingerIcon {
+        height: 100px;
+    }
+
+    &:hover .links a {
+        font-size: 1.25rem;
+    }
+
+    .kollingerIcon {
+        height: 60px;
+        width: unset !important;
+        aspect-ratio: 79 / 72;
+        filter: saturate(0);
+        transition: height 0.3s cubic-bezier(0.485, -0.050, 0.285, 1.505);
+    }
+
+    .social {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .social-icon {
+            height: 25px;
+            width: 25px;
+        }
+    }
+
+    .links {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+
+        a {
+            color: black;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s cubic-bezier(0.485, -0.050, 0.285, 1.505);
+
+            &:hover {
+                border-color: black;
+            }
+        }
+    }
+}
+</style>
