@@ -1,14 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import CoverMaterials from '../assets/images/materials-cover.png';
-import Bronze from '../assets/images/materials/bronze.png';
-import Aluminum from '../assets/images/materials/aluminum.png';
-import Zink from '../assets/images/materials/zink.png';
-import Messing from '../assets/images/materials/messing.png';
-import Silber from '../assets/images/materials/silber.png';
-import Tombak from '../assets/images/materials/tombak.png';
-import Others from '../assets/images/materials/others.png';
+import CoverMaterials from '../assets/images/technik-long.png';
+import ProzesseMaterials from '../assets/images/technik-long-2.png';
 import Something from '../assets/images/der-kopf-3.jpeg';
 import Slide1 from '../assets/images/slide-1.png';
 import Slide2 from '../assets/images/slide-2.png';
@@ -55,17 +49,15 @@ import YouTube from '../assets/images/icons/y.png';
         <div class="items">
             <div class="hoverable">
                 <div class="title">
-                    OBERFLÄCHEN
-                    VEREDELUNG
+                    TECHNISCHE PROTOTYPEN
                 </div> 
                 <div class="more">
-                    von Patina über Komplexe Lackierungen bis hin zu vergoldung
+                    vom Millimeter-Bauteil bis zur Grossplastik
                 </div>
             </div>
             <div class="hoverable">
                 <div class="title">
-                    EINZEL
-                    ANFERTIGUNGEN
+                    EINZELANFERTIGUNGEN
                 </div>
                 <div class="more">
                     sowie Klein- und vorserien im Sand- oder Feinguss
@@ -78,12 +70,6 @@ import YouTube from '../assets/images/icons/y.png';
                 </div>
             </div>
             <div class="hoverable">
-                <div class="title">TECHNISCHE PROTOTYPEN</div>
-                <div class="more">
-                    vom Millimeter-Bauteil bis zur Grossplastik
-                </div>
-            </div>
-            <div class="hoverable">
                 <div class="title">MODELLE UND ABFORMUNGEN</div>
                 <div class="more">
                     vom Millimeter-Bauteil bis zur Grossplastik
@@ -92,60 +78,124 @@ import YouTube from '../assets/images/icons/y.png';
             <div class="hoverable">
                 <div class="title">ERWEITERTE LEISTUNGEN</div>
                 <div class="more">
+                    von Patina über Komplexe Lackierungen bis hin zu vergoldung
+                </div>
+            </div>
+            <div class="hoverable">
+                <div class="title">OBERFLÄCHENVEREDELUNG</div>
+                <div class="more">
                     wie Montage, technische Anpassungen oder Sonderanfertigungen
                 </div>
             </div>
         </div>
     </div>
-    <section class="third-part">
+
+    <section class="fifth-part">
         <div class="hero2">
             <Image class="image parallax" src={CoverMaterials} alt="Image 1" />
         </div>
-        <div class="materials">
-            <h2 class="header"><span>UNSERE MATERIALIEN</span></h2>
-            <div class="materialsList">
-                <article class="material">
-                    <div class="materialImg">
-                        <Image src={Bronze} alt="Image 1" />
+        <div class="leistungen">
+            <h2 class="header"><span>UNSERE LEISTUNGEN</span></h2>
+            <div class="info">
+                <Image class="leistungen-img" src={Leistungen} alt="Image 5" />
+                <div class="info-right">
+                    <p class="info-head">VIELFALT IM METALLGUSS</p>
+                    <p>
+                        Ob filigraner Prototyp oder monumentale Skulptur – wir
+                        realisieren Ihre Ideen in hochwertigem Metallguss. Unsere
+                        Expertise ermöglicht maßgeschneiderte Lösungen, unabhängig
+                        von Größe, Komplexität oder Materialanforderung.
+                    </p>
+                    <p>
+                        Vertraulichkeit und der Schutz Ihrer kreativen Arbeit sind
+                        für uns selbstverständlich: Ihre Daten und Urheberrechte
+                        behandeln wir mit größter Sorgfalt.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prozesse-part">
+        <div class="hero3">
+            <Image class="image parallax" src={ProzesseMaterials} alt="Image 1" />
+        </div>
+        <div class="prozesse">
+            <h2 class="header left"><span>UNSERE PROZESSE</span></h2>
+            <div class="prozesse-info">
+                <div class="prozesse-left">PRÄZISION FÜR HÖCHSTE ANSPRÜCHE</div>
+                <div class="prozesse-right">
+                    Unser Feinguss-Verfahren ermöglicht die Fertigung von Werkstücken in außergewöhnlich
+                    hoher Qualität – exakt abgestimmt auf die komplexen Anforderungen moderner Technik.
+                    Dank langjähriger Erfahrung und der präzisen Auswahl geeigneter Gusswerkstoffe erzielen
+                    wir selbst bei anspruchsvollen Konstruktionen optimale Ergebnisse.
+                </div>
+            </div>
+            <div class="prozesse-list">
+                <div class="prozesse-row prozesse-row-1">
+                    <div class="prozesse-item">
+                        <div class="process-title">VOR DEM GUSS</div>
+                        <div class="process-sub">
+                            Digitale & physische Modellvorbereitung
+                        </div>
+                        <ul>
+                            <li>3D-Scan bestehender Objekte</li>
+                            <li>CAD-Konstruktion & Datenaufbereitung</li>
+                            <li>Modellherstellung via 3D-Druck, CNC-Fräsen oder manuelle Modellierung</li>
+                            <li>Erstellung von Silikonformen und Sandformen</li>
+                        </ul>
                     </div>
-                    <p class="name">Bronze</p>
-                </article>
-                <article class="material">
-                    <div class="materialImg">
-                        <Image src={Zink} alt="Image 1" />
+                    <div class="prozesse-item">
+                        <div class="process-title">GUSS & VEREDELUNG</div>
+                        <div class="process-sub">
+                            Der eigentliche Gussprozess
+                        </div>
+                        <ul>
+                            <li>
+                                Feinguss und Sandguss in unterschiedlichen
+                                Metallen und Legierungen
+                            </li>
+                            <li>Schleifen, Polieren, Patinieren</li>
+                            <li>Technische Lackierungen, Korrosionsschutz</li>
+                            <li>Veredelungen wie Versilberung, Vergoldung</li>
+                            <li>
+                                Wärmebehandlungen: spannungsfreies Glühen
+                                (z. B. für Kupferguss)
+                            </li>
+                        </ul>
                     </div>
-                    <p class="name">Zink</p>
-                </article>
-                <article class="material">
-                    <div class="materialImg">
-                        <Image src={Messing} alt="Image 1" />
+                </div>
+                <div class="prozesse-row prozesse-row-2">
+                    <div class="prozesse-item">
+                        <div class="process-title">PRÜFVERFAHREN</div>
+                        <div class="process-sub">
+                            Qualität, die sichtbar wird
+                        </div>
+                        <ul>
+                            <li>GOM-3D-Vermessung</li>
+                            <li>Spektralanalyse zur Legierungsprüfung</li>
+                            <li>Rissprüfung (z. B. Farbeindringverfahren)</li>
+                            <li>Zugproben & Drucktests</li>
+                            <li>Dichteprüfung</li>
+                            <li>Thermoanalyse</li>
+                            <li>Röntgenprüfung für innere Fehlstellen</li>
+                        </ul>
                     </div>
-                    <p class="name">Messig</p>
-                </article>
-                <article class="material">
-                    <div class="materialImg">
-                        <Image src={Aluminum} alt="Image 1" />
+                    <div class="prozesse-item">
+                        <div class="process-title">NACH DEM GUSS</div>
+                        <div class="process-sub">
+                            Montage, Technik & Platzierung
+                        </div>
+                        <p>
+                            Montage und Transport großformatiger Skulpturen
+                            Statische Berechnungen und Vorbereitung der
+                            Fundamente Integration von Technik: z. B.
+                            Wasserführung in Brunnenprojekten Abstimmung mit
+                            Architekten, Galerien oder Bauleitung Pflege- und
+                            Wartungshinweise für Außenobjekte.
+                        </p>
                     </div>
-                    <p class="name">Aluminium</p>
-                </article>
-                <article class="material">
-                    <div class="materialImg">
-                        <Image src={Silber} alt="Image 1" />
-                    </div>
-                    <p class="name">Silber</p>
-                </article>
-                <article class="material">
-                    <div class="materialImg">
-                        <Image src={Tombak} alt="Image 1" />
-                    </div>
-                    <p class="name">TOMBAK / SILIZIUMBRONZE</p>
-                </article>
-                <article class="material">
-                    <div class="materialImg">
-                        <Image src={Others} alt="Image 1" />
-                    </div>
-                    <p class="name">SONDERLEGIERUNGEN</p>
-                </article>
+                </div>
             </div>
         </div>
     </section>
@@ -202,57 +252,7 @@ import YouTube from '../assets/images/icons/y.png';
         </div>
     </section>
 
-    <section class="fifth-part">
-        <div class="leistungen">
-            <h2 class="header"><span>UNSERE LEISTUNGEN</span></h2>
-            <div class="info">
-                <Image class="leistungen-img" src={Leistungen} alt="Image 5" />
-                <div class="info-right">
-                    <p class="info-head">VIELFALT IM METALLGUSS</p>
-                    <p>
-                        Ob filigraner Prototyp oder monumentale Skulptur – wir
-                        realisieren Ihre Ideen in hochwertigem Metallguss. Unsere
-                        Expertise ermöglicht maßgeschneiderte Lösungen, unabhängig
-                        von Größe, Komplexität oder Materialanforderung.
-                    </p>
-                    <p>
-                        Vertraulichkeit und der Schutz Ihrer kreativen Arbeit sind
-                        für uns selbstverständlich: Ihre Daten und Urheberrechte
-                        behandeln wir mit größter Sorgfalt.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="final"></section>
-
-    <footer>
-        <Image class="kollingerIcon" src={KollingerIcon} alt="Kollinger Logo" />
-        <div class="social">
-            <p>FOLGT UNS</p>
-            <a href="">
-                <Image class="social-icon" src={Facebook} alt="Facebook Icon" />
-            </a>
-            <a href="">
-                <Image class="social-icon" src={Pinterest} alt="Pinterest Icon" />
-            </a>
-            <a href="">
-                <Image class="social-icon" src={Insta} alt="Instagram Icon" />
-            </a>
-            <a href="">
-                <Image class="social-icon" src={YouTube} alt="YouTube Icon" />
-            </a>
-            <a href="">
-                <Image class="social-icon" src={LinkedIn} alt="LinkedIn Icon" />
-            </a>
-        </div>
-        <div class="links">
-            <a href="">Kontakt</a>
-            <a href="">Datenschutz</a>
-            <a href="">Impressum</a>
-        </div>
-    </footer>
 </Layout>
 
 <script>
@@ -365,35 +365,12 @@ tl.from(".second-part .more", {
 gsap.to(".hero2 .parallax", {
     scrollTrigger: {
         trigger: ".hero2",
-        start: "top 50%",
+        start: "top 80%",
         end: "bottom top",
         scrub: true
     },
     y: 100,
 });
-
-const tlMaterials = gsap.timeline({
-    scrollTrigger: {
-        scrub: true,
-        pin: true,
-        trigger: ".materials",
-        start: "50% 50%",
-        endTrigger: ".third-part",
-        end: "bottom 50%",
-    },
-});
-tlMaterials
-    .add('start')
-    .from(
-        ".materials .materialsList",
-        { xPercent: -100, ease: "power3.inOut" },
-        'start'
-    )
-    .from(".materialsList .material", {
-        scale: 0.8,
-        stagger: -0.15,
-        ease: "power2.inOut"
-    }, "start");
 
 const tlSlider = gsap.timeline({
     scrollTrigger: {
@@ -406,6 +383,16 @@ const tlSlider = gsap.timeline({
     },
 });
 tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
+
+gsap.to(".hero3 .parallax", {
+    scrollTrigger: {
+        trigger: ".hero3",
+        start: "top 80%",
+        end: "bottom top",
+        scrub: true
+    },
+    y: 100,
+});
 </script>
 
 <style>
@@ -458,7 +445,7 @@ tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
 .second-part {
     padding-top: 150px;
     margin-bottom: 10rem;
-    height: 600vh;
+    height: 300vh;
     position: relative;
 
     img.something {
@@ -500,20 +487,7 @@ tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
 }
 
 .third-part {
-    height: 600vh;
-
-    .hero2 {
-        height: 560px;
-        width: 100%;
-        overflow: hidden;
-
-        img {
-            width: 100%;
-            height: calc(100% + 100px);
-            object-fit: cover;
-            transform: translateY(-120px);
-        }
-    }
+    height: 300vh;
 
     .materials {
         .materialsList {
@@ -560,7 +534,7 @@ tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
 
             .slide {
                 .image {
-                    height: 500px;
+                    height: 45vh;
                     width: unset !important;
                     aspect-ratio: 3 / 4;
                     object-fit: cover;
@@ -591,22 +565,121 @@ tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
 }
 
 .fifth-part {
-    padding-top: 50vh;
-    height: 600vh;
+    margin-bottom: 5rem;
+    border: 1px solid black;
+
+    .hero2 {
+        height: 560px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: calc(100% + 100px);
+            object-fit: cover;
+            transform: translateY(-120px);
+        }
+    }
 
     .leistungen {
+        padding-top: 3rem;
 
         img.leistungen-img {
             margin-top: calc(-3rem - 37px);
+            height: 60vh;
+            object-fit: cover;
+            object-position: top;
+            width: 45vw;
         }
 
         .info {
-            display: flex;
+            display: grid;
             align-items: center;
+            grid-template-columns: 3fr 2fr;
 
             .info-right {
+                width: 600px;
+                margin-top: -7rem;
+
                 .info-head {
                     font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.prozesse-part {
+    .hero3 {
+        height: 560px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: calc(100% + 100px);
+            object-fit: cover;
+            transform: translateY(-120px);
+        }
+    }
+
+    .prozesse-info {
+        display: flex;
+        margin: -2.5rem 0;
+        padding: 0 1.75rem;
+        gap: 10rem;
+
+        .prozesse-left {
+            width: 570px;
+            text-align: end;
+            font-weight: bold;
+        }
+
+        .prozesse-right {
+            max-width: 700px;
+        }
+    }
+
+    .prozesse-list {
+        padding: 6rem 5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .prozesse-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            &.prozesse-row-2 {
+                justify-items: end;
+            }
+
+            .prozesse-item {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 400px;
+                opacity: 0.55;
+                transition: 0.3s ease-in;
+                transform: scale(1);
+
+                &:hover {
+                    opacity: 1;
+                    transform: scale(1.05);
+                }
+
+                .process-title {
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                }
+
+                .process-sub {
+                    font-weight: bold;
+                    font-size: 1.125rem;
+                }
+
+                ul {
+                    margin: 1rem 0;
                 }
             }
         }
@@ -657,72 +730,5 @@ tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
 
 .final {
     height: 100vh
-}
-
-footer {
-    padding: 1rem;
-    padding-top: 0.25rem;
-    width: 100vw;
-    position: fixed;
-    bottom: -20px;
-    z-index: 10;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: 0.3s cubic-bezier(0.485, -0.050, 0.285, 1.505);
-    display: grid;
-    grid-template-columns: 1fr 3fr 8fr;
-    align-items: center;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(15px);
-
-
-    &:hover {
-        bottom: 0;
-        padding-top: 1rem;
-    }
-
-    &:hover .kollingerIcon {
-        height: 100px;
-    }
-
-    &:hover .links a {
-        font-size: 1.25rem;
-    }
-
-    .kollingerIcon {
-        height: 60px;
-        width: unset !important;
-        aspect-ratio: 79 / 72;
-        filter: saturate(0);
-        transition: height 0.3s cubic-bezier(0.485, -0.050, 0.285, 1.505);
-    }
-
-    .social {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-
-        .social-icon {
-            height: 25px;
-            width: 25px;
-        }
-    }
-
-    .links {
-        display: flex;
-        gap: 1rem;
-        justify-content: flex-end;
-
-        a {
-            color: black;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: 0.3s cubic-bezier(0.485, -0.050, 0.285, 1.505);
-
-            &:hover {
-                border-color: black;
-            }
-        }
-    }
 }
 </style>

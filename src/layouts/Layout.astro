@@ -1,4 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+import KollingerIcon from '../assets/images/footer-icon.png';
+import Facebook from '../assets/images/icons/f.png';
+import Insta from '../assets/images/icons/i.png';
+import LinkedIn from '../assets/images/icons/l.png';
+import Pinterest from '../assets/images/icons/p.png';
+import YouTube from '../assets/images/icons/y.png';
 import '../styles/global.scss';
 import './styles.scss';
 
@@ -29,6 +36,32 @@ const isTechnik = urlPath.includes('/technik');
             </div>
         </nav>
 		<slot />
+        <footer>
+            <Image class="kollingerIcon" src={KollingerIcon} alt="Kollinger Logo" />
+            <div class="social">
+                <p>FOLGT UNS</p>
+                <a href="">
+                    <Image class="social-icon" src={Facebook} alt="Facebook Icon" />
+                </a>
+                <a href="">
+                    <Image class="social-icon" src={Pinterest} alt="Pinterest Icon" />
+                </a>
+                <a href="">
+                    <Image class="social-icon" src={Insta} alt="Instagram Icon" />
+                </a>
+                <a href="">
+                    <Image class="social-icon" src={YouTube} alt="YouTube Icon" />
+                </a>
+                <a href="">
+                    <Image class="social-icon" src={LinkedIn} alt="LinkedIn Icon" />
+                </a>
+            </div>
+            <div class="links">
+                <a href="">Kontakt</a>
+                <a href="">Datenschutz</a>
+                <a href="">Impressum</a>
+            </div>
+        </footer>
 	</body>
 </html>
 
