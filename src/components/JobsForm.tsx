@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { db, storage } from "../lib/firebaseClient";
-import { collection, addDoc, getDocs, updateDoc, doc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { collection, addDoc, getDocs, updateDoc, doc, deleteDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 import "./JobsForm.scss";
 
 const JobManager = () => {
@@ -125,6 +125,59 @@ const JobManager = () => {
         }
     };
 
+    const handleDeleteJob = async () => {
+        if (!selectedJobId) return;
+        const confirmed = confirm("Are you sure you want to delete this job?");
+        if (!confirmed) return;
+
+        setLoading(true);
+        try {
+            const jobToDelete = jobs.find(job => job.id === selectedJobId);
+
+            // Delete image from storage if available
+            if (jobToDelete.imageUrl) {
+                try {
+                    const path = new URL(jobToDelete.imageUrl).pathname;
+                    const filename = decodeURIComponent(path.split("/").pop());
+                    const imgRef = ref(storage, `jobs/${filename}`);
+                    await deleteObject(imgRef);
+                } catch (e) {
+                    console.warn("Image deletion failed (may not exist):", e);
+                }
+            }
+
+            // Delete job document
+            await deleteDoc(doc(db, "jobs", selectedJobId));
+
+            // Refresh job list
+            const snapshot = await getDocs(collection(db, "jobs"));
+            const jobList = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setJobs(jobList);
+
+            // Clear form
+            setSelectedJobId(null);
+            setFormData({
+                name: "",
+                description: "",
+                requirements: [""],
+                tasks: [""],
+                offer: [""],
+                image: null,
+                imageUrl: "",
+            });
+
+            alert("Job deleted successfully.");
+        } catch (error) {
+            console.error("Failed to delete job:", error);
+            alert("Error deleting job.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="job-manager">
             <aside className="job-list">
@@ -206,6 +259,16 @@ const JobManager = () => {
                 </label>
 
                 <button type="submit">{selectedJobId ? "Update" : "Create"} Job</button>
+                {selectedJobId && (
+                    <button
+                        type="button"
+                        onClick={handleDeleteJob}
+                        className="delete-job-btn"
+                        disabled={loading}
+                    >
+                        🗑 Delete Job
+                    </button>
+                )}
             </form>
             {loading && (
                 <div className="loading-overlay">

@@ -101,6 +101,23 @@ $button-bg: #ddd;
       }
     }
 
+    .delete-job-btn {
+      background-color: #ff4d4f !important;
+      margin-top: unset !important;
+      align-self: unset !important;
+      color: white;
+      border: none;
+      padding: 0.6rem !important;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+
+
     .array-item {
       display: flex;
       align-items: center;
