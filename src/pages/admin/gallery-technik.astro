@@ -1,0 +1,13 @@
+---
+import ProtectedLayout from "../../components/ProtectedLayout";
+import AdminGalleryUploader from "../../components/AdminGalleryUploaderTechnik";
+import LogoutButton from "../../components/LogoutButton";
+import AdminLayout from "../../layouts/AdminLayout.astro";
+---
+
+<AdminLayout>
+    <ProtectedLayout client:only="react">
+        <AdminGalleryUploader client:only="react"/>
+        <LogoutButton client:only="react"/>
+    </ProtectedLayout>
+</AdminLayout>

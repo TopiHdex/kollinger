@@ -24,7 +24,7 @@ export default function AdminGalleryUploader() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const unsubscribe = onSnapshot(collection(db, "gallery"), (snapshot) => {
+        const unsubscribe = onSnapshot(collection(db, "gallery-technik"), (snapshot) => {
             const items: GalleryItem[] = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
@@ -65,13 +65,13 @@ export default function AdminGalleryUploader() {
         try {
             // If a new file is selected, upload it
             if (uploadFile) {
-                const storageRef = ref(storage, `gallery/${uploadFile.name}`);
+                const storageRef = ref(storage, `gallery-technik/${uploadFile.name}`);
                 await uploadBytes(storageRef, uploadFile);
                 imageUrl = await getDownloadURL(storageRef);
             }
 
             if (editingItem) {
-                const itemRef = doc(db, "gallery", editingItem.id);
+                const itemRef = doc(db, "gallery-technik", editingItem.id);
 
                 // If a new image was uploaded, delete the old one
                 if (uploadFile && editingItem.imageUrl) {
@@ -94,7 +94,7 @@ export default function AdminGalleryUploader() {
                 alert("Image updated!");
             } else {
                 // ADD new item
-                await addDoc(collection(db, "gallery"), {
+                await addDoc(collection(db, "gallery-technik"), {
                     title,
                     description,
                     span: columnSpan,
@@ -124,13 +124,13 @@ export default function AdminGalleryUploader() {
             return;
         }
 
-        const itemRef = doc(db, "gallery", item.id);
+        const itemRef = doc(db, "gallery-technik", item.id);
         await updateDoc(itemRef, { isHighlight: !item.isHighlight });
     };
 
     return (
         <>
-            <h2>Upload New Kunst Gallery Image</h2>
+            <h2>Upload New Technik Gallery Image</h2>
             <div className="admin-gallery-uploader">
 
                 <section className="preview-section">
@@ -262,7 +262,7 @@ export default function AdminGalleryUploader() {
                                         }
 
                                         // Delete from Firestore
-                                        await deleteDoc(doc(db, "gallery", editingItem.id));
+                                        await deleteDoc(doc(db, "gallery-technik", editingItem.id));
 
                                         alert("Image deleted.");
                                         resetForm();
