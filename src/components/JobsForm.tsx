@@ -5,6 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./JobsForm.scss";
 
 const JobManager = () => {
+    const [loading, setLoading] = useState(false);
     const [jobs, setJobs] = useState([]);
     const [selectedJobId, setSelectedJobId] = useState(null);
     const [formData, setFormData] = useState({
@@ -73,48 +74,55 @@ const JobManager = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let imageUrl = formData.imageUrl;
+        setLoading(true);
+        try {
+            let imageUrl = formData.imageUrl;
 
-        if (formData.image) {
-            const imageRef = ref(storage, `jobs/${formData.image.name}`);
-            await uploadBytes(imageRef, formData.image);
-            imageUrl = await getDownloadURL(imageRef);
+            if (formData.image) {
+                const imageRef = ref(storage, `jobs/${formData.image.name}`);
+                await uploadBytes(imageRef, formData.image);
+                imageUrl = await getDownloadURL(imageRef);
+            }
+
+            const jobData = {
+                name: formData.name,
+                description: formData.description,
+                requirements: formData.requirements,
+                tasks: formData.tasks,
+                offer: formData.offer,
+                imageUrl,
+            };
+
+            if (selectedJobId) {
+                await updateDoc(doc(db, "jobs", selectedJobId), jobData);
+                alert("Job updated successfully!");
+            } else {
+                await addDoc(collection(db, "jobs"), jobData);
+                alert("Job created successfully!");
+            }
+
+            const snapshot = await getDocs(collection(db, "jobs"));
+            const jobList = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setJobs(jobList);
+            setSelectedJobId(null);
+            setFormData({
+                name: "",
+                description: "",
+                requirements: [""],
+                tasks: [""],
+                offer: [""],
+                image: null,
+                imageUrl: "",
+            });
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("Error saving the job. Check console.");
+        } finally {
+            setLoading(false);
         }
-
-        const jobData = {
-            name: formData.name,
-            description: formData.description,
-            requirements: formData.requirements,
-            tasks: formData.tasks,
-            offer: formData.offer,
-            imageUrl,
-        };
-
-        if (selectedJobId) {
-            await updateDoc(doc(db, "jobs", selectedJobId), jobData);
-            alert("Job updated successfully!");
-        } else {
-            await addDoc(collection(db, "jobs"), jobData);
-            alert("Job created successfully!");
-        }
-
-        // Optionally reload job list
-        const snapshot = await getDocs(collection(db, "jobs"));
-        const jobList = snapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-        }));
-        setJobs(jobList);
-        setSelectedJobId(null);
-        setFormData({
-            name: "",
-            description: "",
-            requirements: [""],
-            tasks: [""],
-            offer: [""],
-            image: null,
-            imageUrl: "",
-        });
     };
 
     return (
@@ -146,6 +154,7 @@ const JobManager = () => {
                             setFormData({ ...formData, name: e.target.value })
                         }
                         required
+                        disabled={loading}
                     />
                 </label>
 
@@ -157,6 +166,7 @@ const JobManager = () => {
                             setFormData({ ...formData, description: e.target.value })
                         }
                         required
+                        disabled={loading}
                     />
                 </label>
 
@@ -171,18 +181,20 @@ const JobManager = () => {
                                     onChange={(e) => handleArrayChange(field, idx, e.target.value)}
                                     placeholder={`Enter ${field} ${idx + 1}`}
                                     required
+                                    disabled={loading}
                                 />
                                 <button
                                     type="button"
                                     className="delete-btn"
                                     onClick={() => removeArrayItem(field, idx)}
                                     title="Remove item"
+                                    disabled={loading}
                                 >
                                     🗑
                                 </button>
                             </div>
                         ))}
-                        <button type="button" onClick={() => addArrayItem(field)}>
+                        <button disabled={loading} type="button" onClick={() => addArrayItem(field)}>
                             + Add {field}
                         </button>
                     </div>
@@ -195,6 +207,12 @@ const JobManager = () => {
 
                 <button type="submit">{selectedJobId ? "Update" : "Create"} Job</button>
             </form>
+            {loading && (
+                <div className="loading-overlay">
+                    <div className="spinner" />
+                    <p>Loading...</p>
+                </div>
+            )}
         </div>
     );
 };
