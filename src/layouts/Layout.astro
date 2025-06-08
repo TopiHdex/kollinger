@@ -30,7 +30,7 @@ const isTechnik = urlPath.includes('/technik');
                 <a href="/technik" class={`technik ${isTechnik ? 'bold' : ''}`}>TECHNIK</a>
             </p>
             <div class="links">
-                <a href="/referenzen" class="active">REFERENZEN</a>
+                <a href={`/${isKunst ? 'kunst' : 'technik'}/referenzen`} class="active">REFERENZEN</a>
                 <a href="/karriere">KARRIERE</a>
                 <a href="/kontakt">KONTAKT</a>
             </div>
