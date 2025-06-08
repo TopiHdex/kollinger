@@ -11,11 +11,14 @@ import Slide4 from '../../assets/images/slide-4.png';
 import Slide5 from '../../assets/images/slide-5.png';
 import Slide6 from '../../assets/images/slide-6.png';
 import Leistungen from '../../assets/images/leistungen.png';
+import ReferenzenCover from '../../assets/images/referenzen-cover.png';
+import ProzesseRight from '../../assets/images/prozesse-right.png';
+import ProzesseLeft from '../../assets/images/prozesse-left.png';
 ---
 
 <Layout>
     <div class="hero">
-        <video class="image parallax" autoplay muted loop controls>
+        <video class="image parallax" autoplay muted loop>
             <source src="https://occ87lmc8c.ufs.sh/f/amuZeWyiXfpxXfHjg5bbHsP3C5tyvgx2ETmcLdIflAGwkZYi" type="video/mp4">
         </video>
     </div>
@@ -191,12 +194,19 @@ import Leistungen from '../../assets/images/leistungen.png';
                     </div>
                 </div>
             </div>
+            <div class="prozesse-imgs">
+                <Image src={ProzesseLeft} alt="Prozesse Left" />
+                <Image src={ProzesseRight} alt="Prozesse Right" />
+            </div>
         </div>
     </section>
 
     <section class="fourth-part">
+        <div class="hero4">
+            <Image class="image parallax" src={ReferenzenCover} alt="Image 1" />
+        </div>
         <div class="slider-cont">
-            <h2 class="header left"><span>REFERENZEN</span></h2>
+            <h2 class="header"><span>REFERENZEN</span></h2>
             <div class="slider-bg">
                 <div class="slider">
                     <div class="slide c5">
@@ -245,8 +255,6 @@ import Leistungen from '../../assets/images/leistungen.png';
             </div>
         </div>
     </section>
-
-    <section class="final"></section>
 </Layout>
 
 <script>
@@ -387,6 +395,15 @@ gsap.to(".hero3 .parallax", {
     },
     y: 100,
 });
+gsap.to(".hero4 .parallax", {
+    scrollTrigger: {
+        trigger: ".hero4",
+        start: "top 80%",
+        end: "bottom top",
+        scrub: true
+    },
+    y: 100,
+});
 </script>
 
 <style>
@@ -514,13 +531,24 @@ gsap.to(".hero3 .parallax", {
 }
 
 .fourth-part {
-    padding-top: 40vh;
     height: 600vh;
+
+    .hero4 {
+        height: 560px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: calc(100% + 100px);
+            object-fit: cover;
+            transform: translateY(-120px);
+        }
+    }
 
     .slider-bg {
         overflow: hidden;
-        background-color: #D9D0BE;
-        padding: 2rem 1.75rem;
+        padding: 1rem 1.75rem;
 
         .slider {
             display: flex;
@@ -675,6 +703,32 @@ gsap.to(".hero3 .parallax", {
                 ul {
                     margin: 1rem 0;
                 }
+            }
+        }
+    }
+
+    .prozesse-imgs {
+        display: flex;
+        height: 30rem;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 5rem;
+
+        img {
+            width: 25rem;
+            object-fit: cover;
+            height: 25rem;
+            transition: 0.3s ease-in;
+            opacity: 0.7;
+
+            &:nth-child(2) {
+                width: 30rem;
+                height: 30rem;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+                opacity: 1;
             }
         }
     }
