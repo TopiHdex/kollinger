@@ -25,6 +25,8 @@ nav {
   .links {
     display: flex;
     gap: 6rem;
+    height: 100%;
+    align-items: center;
 
     a {
       color: black;
@@ -42,6 +44,51 @@ nav {
     }
   }
 }
+
+.dropdown-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .dropdown {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+
+    a {
+      color: black;
+      text-decoration: none;
+      padding: 0.4rem 0;
+      font-weight: 500;
+      transition: color 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        color: #555;
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  &:hover .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
+
 
 footer {
     padding: 1rem 3rem;
