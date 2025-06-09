@@ -17,6 +17,7 @@ import Slide5 from '../../assets/images/slide-5.png';
 import Slide6 from '../../assets/images/slide-6.png';
 import Leistungen from '../../assets/images/leistungen.png';
 import Arrow from '../../assets/images/Arrow.png';
+import Last from '../../assets/images/last-kunst.png';
 ---
 
 <Layout>
@@ -119,7 +120,7 @@ import Arrow from '../../assets/images/Arrow.png';
                     <div class="materialImg">
                         <Image src={Messing} alt="Image 1" />
                     </div>
-                    <p class="name">Messig</p>
+                    <p class="name">Messing</p>
                 </article>
                 <article class="material">
                     <div class="materialImg">
@@ -230,7 +231,52 @@ import Arrow from '../../assets/images/Arrow.png';
         </div>
     </section>
 
-    <section class="final"></section>
+    <section class="final">
+        <div class="prozesse">
+            <h2 class="header left"><span>ERREICH UNS</span></h2>
+            <div class="prozesse-info">
+                <div class="prozesse-left">
+                    VERLÄSSLICHER PARTNER FÜR<br>
+                    KÜNSTLERISCHE VISIONEN
+                </div>
+                <div class="prozesse-right">
+                    Künstlerisches Arbeiten erfordert Vertrauen – in Material,
+                    Technik und Menschen. Wir begleiten jede Arbeit mit
+                    individueller Beratung und größter Sorgfalt. Das Verständnis
+                    für Form, Intention und gewünschte Oberflächenwirkung steht
+                    dabei im Zentrum unserer Arbeit.
+                    <br>
+                    <br>
+                    Ob klassische Bronze mit charaktervoller Patina oder
+                    Sonderlegierungen wie Messing, Aluminium, Zink oder Silber
+                    – wir wählen das passende Metall für jedes Projekt.
+                    <br>
+                    <br>
+                    Unsere Fertigung ermöglicht sowohl feinste Details als auch
+                    großformatige Arbeiten für den Innen- und Außenraum. Die
+                    Platzierung und Montage übernehmen wir auf Wunsch gleich
+                    mit.
+                </div>
+            </div>
+            <div class="quote">
+                „Dank der Beratung und dem Know-how des Teams wurde mein Entwurf
+                nicht nur realisiert, sondern sogar verbessert. Bei Kollinger
+                fühlt man sich als Künstler ernst genommen.“
+            </div>
+            <div class="lastImage">
+                <div class="lastLeft">
+                    QUALITÄT
+                    <br>
+                    SEIT 1993
+                </div>
+                <div class="lastRight">
+                    DIE KUNST
+                    <br>
+                    IM GUNSS
+                </div>
+                <Image src={Last} alt="Image 1" />
+            </div>
+    </section>
 </Layout>
 
 <script>
@@ -374,10 +420,10 @@ const tlSlider = gsap.timeline({
         trigger: ".slider-cont",
         start: "50% 50%",
         endTrigger: ".fourth-part",
-        end: "bottom 50%",
+        end: "bottom 10%",
     },
 });
-tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
+tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in" });
 </script>
 
 <style>
@@ -476,7 +522,7 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
 }
 
 .third-part {
-    height: 300vh;
+    height: 200vh;
 
     .hero2 {
         height: 560px;
@@ -523,7 +569,7 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
 
 .fourth-part {
     padding-top: 40vh;
-    height: 400vh;
+    height: 300vh;
 
     .slider-bg {
         overflow: hidden;
@@ -537,7 +583,7 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
 
             .see-more {
                 align-self: end;
-                margin-bottom: calc(2.25rem + 57px);
+                margin-bottom: calc(2.25rem + 54px);
                 font-size: 1.35rem;
                 font-weight: bold;
                 margin-left: 6rem;
@@ -563,7 +609,6 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
                     object-fit: cover;
                 }
             }
-
 
             .slide {
                 .image {
@@ -599,7 +644,7 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
 
 .fifth-part {
     padding-top: 50vh;
-    height: 600vh;
+    border-bottom: 1px solid black;
 
     .leistungen {
 
@@ -671,6 +716,62 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
 }
 
 .final {
-    height: 100vh
+    padding-bottom: 5rem;
+
+    .prozesse-info {
+        display: flex;
+        margin: -2.5rem 0;
+        padding: 0 1.75rem;
+        gap: 10rem;
+
+        .prozesse-left {
+            width: 395px;
+            text-align: end;
+            font-weight: bold;
+        }
+
+        .prozesse-right {
+            max-width: 700px;
+        }
+    }
+
+    .quote {
+        width: 30%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 10rem;
+        padding-bottom: 7rem;
+    }
+
+    .lastImage {
+        position: relative;
+        width: 100%;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .lastRight {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 2rem;
+            text-align: end;
+        }
+
+        .lastLeft {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 2rem;
+        }
+    }
 }
 </style>

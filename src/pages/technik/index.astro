@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import CoverMaterials from '../../assets/images/technik-long.png';
+import CoverMaterials from '../../assets/images/RAD.jpg';
 import ProzesseMaterials from '../../assets/images/technik-long-2.png';
 import Something from '../../assets/images/der-kopf-3.jpeg';
 import Slide1 from '../../assets/images/slide-1.png';
@@ -14,6 +14,8 @@ import Leistungen from '../../assets/images/leistungen.png';
 import ReferenzenCover from '../../assets/images/referenzen-cover.png';
 import ProzesseRight from '../../assets/images/prozesse-right.png';
 import ProzesseLeft from '../../assets/images/prozesse-left.png';
+import Arrow from '../../assets/images/Arrow.png';
+import Last from '../../assets/images/last-technik.png';
 ---
 
 <Layout>
@@ -263,10 +265,37 @@ import ProzesseLeft from '../../assets/images/prozesse-left.png';
                             <p class="item-desc">wo man es sehen kann?</p>
                         </div>
                     </div>
-                    <div class="see-more">WEITER ZUR GALLERIE</div>
+                    <div class="see-more">
+                        <Image class="arrow" src={Arrow} alt="Image 5" />
+                        <a href="/technik/referenzen">
+                            WEITER ZUR GALLERIE
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="final">
+        <div class="prozesse">
+            <div class="quote">
+                „Dank der Beratung und dem Know-how des Teams wurde mein Entwurf
+                nicht nur realisiert, sondern sogar verbessert. Bei Kollinger
+                fühlt man sich als Künstler ernst genommen.“
+            </div>
+            <div class="lastImage">
+                <div class="lastLeft">
+                    QUALITÄT
+                    <br>
+                    SEIT 1993
+                </div>
+                <div class="lastRight">
+                    DIE KUNST
+                    <br>
+                    IM GUNSS
+                </div>
+                <Image src={Last} alt="Image 1" />
+            </div>
     </section>
 </Layout>
 
@@ -394,10 +423,10 @@ const tlSlider = gsap.timeline({
         trigger: ".slider-cont",
         start: "50% 50%",
         endTrigger: ".fourth-part",
-        end: "bottom 50%",
+        end: "bottom 100%",
     },
 });
-tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
+tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in" });
 
 gsap.to(".hero3 .parallax", {
     scrollTrigger: {
@@ -570,11 +599,31 @@ gsap.to(".hero4 .parallax", {
 
             .see-more {
                 align-self: end;
-                margin-bottom: calc(2.25rem + 57px);
+                margin-bottom: calc(2.25rem + 54px);
                 font-size: 1.35rem;
                 font-weight: bold;
                 margin-left: 6rem;
                 width: max-content;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    border-bottom: 3px solid transparent;
+                    transition: 0.3s ease-out;
+
+                    &:hover {
+                        border-color: black;
+                    }
+                }
+
+                .arrow {
+                    height: 45px;
+                    width: 30px;
+                    object-fit: cover;
+                }
             }
 
             .slide {
@@ -611,7 +660,7 @@ gsap.to(".hero4 .parallax", {
 
 .fifth-part {
     margin-bottom: 5rem;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
 
     .hero2 {
         height: 560px;
@@ -800,6 +849,46 @@ gsap.to(".hero4 .parallax", {
 }
 
 .final {
-    height: 100vh
+    padding-bottom: 5rem;
+
+    .quote {
+        width: 45%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 4rem;
+        padding-bottom: 7rem;
+        font-size: 1.5rem;
+    }
+
+    .lastImage {
+        position: relative;
+        width: 100%;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .lastRight {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 2rem;
+            text-align: end;
+        }
+
+        .lastLeft {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 2rem;
+        }
+    }
 }
 </style>
