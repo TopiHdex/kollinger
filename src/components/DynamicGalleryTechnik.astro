@@ -5,6 +5,7 @@ import type { GalleryItem } from '../lib/firebaseClient';
 
 const snapshot = await db.collection('gallery-technik').orderBy('position').get();
 const items: GalleryItem[] = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as GalleryItem));
+// style={`aspect-ratio: ${item.span === 2 ? '4 / 3' : '3 / 4'}`}
 ---
 
 <div class="gallery">
@@ -26,4 +27,3 @@ const items: GalleryItem[] = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data
         </div>
     ))}
 </div>
-

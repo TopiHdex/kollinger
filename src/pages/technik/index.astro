@@ -27,7 +27,7 @@ import Last from '../../assets/images/last-technik.png';
     <div class="first-part">
         <div class="left">
             <h1 class="on-enter">UNSER TECHNIKGUSS</h1>
-            <p class="on-enter">PRÄZISION FÜR KUNST</p>
+            <p class="on-enter">PRÄZISION FÜR TECHNIK</p>
         </div>
         <div class="right">
             <p class="p1 on-enter">
@@ -44,58 +44,53 @@ import Last from '../../assets/images/last-technik.png';
         </div>
     </div>
     <div class="second-part">
-        <Image class="something" src={Something} alt="Image Something" />
         <div class="items">
-            <div class="hoverable">
-                <div class="title">
-                    TECHNISCHE PROTOTYPEN
-                </div> 
-                <div class="more">
-                    vom Millimeter-Bauteil bis zur Grossplastik
-                </div>
+            <div class="items-title">
+                UNSERE
+                LEISTUNGEN
             </div>
-            <div class="hoverable">
-                <div class="title">
-                    EINZEL
-                    ANFERTIGUNGEN
+            <div class="scrolable">
+                <div class="hoverable">
+                    <div class="title">
+                        OBERFLÄCHEN
+                        VEREDELUNG
+                    </div> 
+                    <div class="more">
+                        von Patina über Komplexe Lackierungen bis hin zu vergoldung
+                    </div>
                 </div>
-                <div class="more">
-                    sowie Klein- und vorserien im Sand- oder Feinguss
+                <div class="hoverable">
+                    <div class="title">
+                        EINZEL
+                        ANFERTIGUNGEN
+                    </div>
+                    <div class="more">
+                        sowie Klein- und vorserien im Sand- oder Feinguss
+                    </div>
                 </div>
-            </div>
-            <div class="hoverable">
-                <div class="title">
-                    INDIVIDUELLES
-                    MODELL
+                <div class="hoverable">
+                    <div class="title">INDIVIDUELLES MODELL</div>
+                    <div class="more">
+                        erstellen wir exakt nach ihrer vorlage
+                    </div>
                 </div>
-                <div class="more">
-                    erstellen wir exakt nach ihrer vorlage
+                <div class="hoverable">
+                    <div class="title">TECHNISCHE PROTOTYPEN</div>
+                    <div class="more">
+                        vom Millimeter-Bauteil bis zur Grossplastik
+                    </div>
                 </div>
-            </div>
-            <div class="hoverable">
-                <div class="title">
-                    MODELLE UND
-                    ABFORMUNGEN
+                <div class="hoverable">
+                    <div class="title">MODELLE UND ABFORMUNGEN</div>
+                    <div class="more">
+                        vom Millimeter-Bauteil bis zur Grossplastik
+                    </div>
                 </div>
-                <div class="more">
-                    vom Millimeter-Bauteil bis zur Grossplastik
-                </div>
-            </div>
-            <div class="hoverable">
-                <div class="title">
-                    ERWEITERTE
-                    LEISTUNGEN</div>
-                <div class="more">
-                    von Patina über Komplexe Lackierungen bis hin zu vergoldung
-                </div>
-            </div>
-            <div class="hoverable">
-                <div class="title">
-                    OBERFLÄCHEN
-                    VEREDELUNG
-                </div>
-                <div class="more">
-                    wie Montage, technische Anpassungen oder Sonderanfertigungen
+                <div class="hoverable">
+                    <div class="title">ERWEITERTE LEISTUNGEN</div>
+                    <div class="more">
+                        wie Montage, technische Anpassungen oder Sonderanfertigungen
+                    </div>
                 </div>
             </div>
         </div>
@@ -396,7 +391,7 @@ const tl = gsap.timeline({
         trigger: ".second-part .items",
         start: "60% 40%",
         endTrigger: ".second-part",
-        end: "bottom 90%",
+        end: "bottom 80%",
     },
 });
 tl.from(".second-part .more", {
@@ -497,21 +492,25 @@ gsap.to(".hero4 .parallax", {
 
 .second-part {
     padding-top: 150px;
-    margin-bottom: 10rem;
-    height: 300vh;
+    height: 120vh;
     position: relative;
 
-    img.something {
-        position: absolute;
-        top: -500px;
-    }
-
     .items {
-        display: flex;
-        width: 70%;
-        margin-left: 30%;
-        justify-content: space-evenly;
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+        gap: 2rem;
         height: 135px;
+        padding: 0 4rem;
+
+        .items-title {
+            font-size: 4rem;
+            font-weight: 300;
+        }
+
+        .scrolable {
+            display: flex;
+            justify-content: space-evenly;
+        }
 
         .hoverable {
             flex-grow: 1;
@@ -676,8 +675,6 @@ gsap.to(".hero4 .parallax", {
     }
 
     .leistungen {
-        padding-top: 3rem;
-
         img.leistungen-img {
             margin-top: calc(-3rem - 37px);
             height: 60vh;
@@ -735,7 +732,8 @@ gsap.to(".hero4 .parallax", {
     }
 
     .prozesse-list {
-        padding: 6rem 5rem;
+        padding: 12rem 5rem;
+        padding-bottom: 7rem;
         display: flex;
         flex-direction: column;
         gap: 2rem;
