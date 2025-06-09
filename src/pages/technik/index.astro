@@ -263,6 +263,7 @@ import ProzesseLeft from '../../assets/images/prozesse-left.png';
                             <p class="item-desc">wo man es sehen kann?</p>
                         </div>
                     </div>
+                    <div class="see-more">WEITER ZUR GALLERIE</div>
                 </div>
             </div>
         </div>
@@ -396,7 +397,7 @@ const tlSlider = gsap.timeline({
         end: "bottom 50%",
     },
 });
-tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
+tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
 
 gsap.to(".hero3 .parallax", {
     scrollTrigger: {
@@ -565,6 +566,16 @@ gsap.to(".hero4 .parallax", {
         .slider {
             display: flex;
             gap: 1rem;
+            width: fit-content;
+
+            .see-more {
+                align-self: end;
+                margin-bottom: calc(2.25rem + 57px);
+                font-size: 1.35rem;
+                font-weight: bold;
+                margin-left: 6rem;
+                width: max-content;
+            }
 
             .slide {
                 .image {

@@ -16,6 +16,7 @@ import Slide4 from '../../assets/images/slide-4.png';
 import Slide5 from '../../assets/images/slide-5.png';
 import Slide6 from '../../assets/images/slide-6.png';
 import Leistungen from '../../assets/images/leistungen.png';
+import Arrow from '../../assets/images/Arrow.png';
 ---
 
 <Layout>
@@ -195,6 +196,12 @@ import Leistungen from '../../assets/images/leistungen.png';
                             <p class="item-desc">wo man es sehen kann?</p>
                         </div>
                     </div>
+                    <div class="see-more">
+                        <Image class="arrow" src={Arrow} alt="Image 5" />
+                        <a href="/kunst/referenzen">
+                            WEITER ZUR GALLERIE
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -354,17 +361,11 @@ const tlMaterials = gsap.timeline({
     },
 });
 tlMaterials
-    .add('start')
-    .from(
-        ".materials .materialsList",
-        { xPercent: -60, ease: "power3.inOut" },
-        'start'
-    )
     .from(".materialsList .material", {
         scale: 0.8,
         stagger: -0.15,
         ease: "power2.inOut"
-    }, "start");
+    });
 
 const tlSlider = gsap.timeline({
     scrollTrigger: {
@@ -376,7 +377,7 @@ const tlSlider = gsap.timeline({
         end: "bottom 50%",
     },
 });
-tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
+tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50 });
 </script>
 
 <style>
@@ -532,6 +533,37 @@ tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
         .slider {
             display: flex;
             gap: 1rem;
+            width: fit-content;
+
+            .see-more {
+                align-self: end;
+                margin-bottom: calc(2.25rem + 57px);
+                font-size: 1.35rem;
+                font-weight: bold;
+                margin-left: 6rem;
+                width: max-content;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    border-bottom: 3px solid transparent;
+                    transition: 0.3s ease-out;
+
+                    &:hover {
+                        border-color: black;
+                    }
+                }
+
+                .arrow {
+                    height: 45px;
+                    width: 30px;
+                    object-fit: cover;
+                }
+            }
+
 
             .slide {
                 .image {
@@ -573,13 +605,21 @@ tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
 
         img.leistungen-img {
             margin-top: calc(-3rem - 37px);
+            height: 60vh;
+            object-fit: cover;
+            object-position: top;
+            width: 45vw;
         }
 
         .info {
-            display: flex;
+            display: grid;
             align-items: center;
+            grid-template-columns: 3fr 2fr;
 
             .info-right {
+                width: 600px;
+                margin-top: -7rem;
+
                 .info-head {
                     font-weight: bold;
                 }
