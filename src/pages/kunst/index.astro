@@ -45,7 +45,6 @@ import Leistungen from '../../assets/images/leistungen.png';
         </div>
     </div>
     <div class="second-part">
-        <Image class="something" src={Something} alt="Image Something" />
         <div class="items">
             <div class="hoverable">
                 <div class="title">
@@ -319,7 +318,7 @@ const tl = gsap.timeline({
         trigger: ".second-part .items",
         start: "60% 40%",
         endTrigger: ".second-part",
-        end: "bottom 90%",
+        end: "bottom 80%",
     },
 });
 tl.from(".second-part .more", {
@@ -424,19 +423,13 @@ tlSlider.fromTo( ".slider", { xPercent: 60 }, { xPercent: -130 });
 
 .second-part {
     padding-top: 150px;
-    margin-bottom: 10rem;
-    height: 300vh;
+    height: 120vh;
     position: relative;
-
-    img.something {
-        position: absolute;
-        top: -500px;
-    }
 
     .items {
         display: flex;
         width: 70%;
-        margin-left: 30%;
+        margin: 0 auto;
         justify-content: space-evenly;
         height: 135px;
 
