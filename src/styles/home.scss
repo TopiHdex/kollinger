@@ -66,6 +66,13 @@ body, html {
     color: white;
     text-decoration: none;
     font-size: 3rem;
+    transition: 0.3s ease-out;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+      transform: scale(1.05);
+      border-color: white;
+    }
   }
 }
 
