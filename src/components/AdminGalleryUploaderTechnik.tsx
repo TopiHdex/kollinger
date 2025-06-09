@@ -115,7 +115,6 @@ export default function AdminGalleryUploader() {
         }
     };
 
-
     const toggleHighlight = async (item: GalleryItem) => {
         const currentHighlights = galleryItems.filter(i => i.isHighlight);
 
@@ -128,9 +127,19 @@ export default function AdminGalleryUploader() {
         await updateDoc(itemRef, { isHighlight: !item.isHighlight });
     };
 
+    const publish = () => {
+        const confirm = window.confirm("Are you sure you want to publish?");
+        if (!confirm) return;
+
+        fetch('https://api.vercel.com/v1/integrations/deploy/prj_Az0b0vAg5ub2On8prkJaOAIp9fOu/iqnfhwU8qP', { method: 'POST' })
+    };
+
     return (
         <>
-            <h2>Upload New Technik Gallery Image</h2>
+            <div className="header">
+                <h2>Upload New Kunst Gallery Image</h2>
+                <button onClick={publish}>Publish</button>
+            </div>
             <div className="admin-gallery-uploader">
 
                 <section className="preview-section">
