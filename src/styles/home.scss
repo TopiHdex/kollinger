@@ -21,15 +21,13 @@ body, html {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation: slideShow 30s infinite;
+    animation: slideShow 20s infinite;
   }
 
   .slide1 { background-image: url('/images/slide1.jpeg'); animation-delay: 0s; }
-  .slide2 { background-image: url('/images/slide2.jpeg'); animation-delay: 5s; }
+  .slide2 { background-image: url('/images/slide2.jpg'); animation-delay: 5s; }
   .slide3 { background-image: url('/images/slide3.jpeg'); animation-delay: 10s; }
-  .slide4 { background-image: url('/images/slide4.jpeg'); animation-delay: 15s; }
-  .slide5 { background-image: url('/images/slide5.jpeg'); animation-delay: 20s; }
-  .slide6 { background-image: url('/images/slide6.jpeg'); animation-delay: 25s; }
+  .slide4 { background-image: url('/images/slide4.jpg'); animation-delay: 15s; }
 }
 
 @keyframes slideShow {
