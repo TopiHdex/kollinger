@@ -1,0 +1,17 @@
+---
+import { db } from '../lib/firebaseClient';
+import { collection, getDocs } from 'firebase/firestore';
+import JobDetails from '../components/JobDetail.jsx';
+import Layout from '../layouts/Layout.astro';
+
+const snapshot = await getDocs(collection(db, 'jobs'));
+const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+---
+
+<Layout>
+    {jobs.length > 0 ? (
+        jobs.map((job) => <JobDetails job={job} key={job.id} />)
+      ) : (
+        <p>Zurzeit keine Stellenangebote verfügbar.</p>
+    )}
+</Layout>
