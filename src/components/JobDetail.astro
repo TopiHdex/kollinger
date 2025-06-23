@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 export interface Props {
   job: {
     id: string;
@@ -23,7 +25,7 @@ const { job } = Astro.props;
     <h1>{job.name}</h1>
     <p class="intro">{job.description}</p>
     {job.imageUrl && (
-      <img src={job.imageUrl} alt={job.name} class="job-image" />
+      <Image src={job.imageUrl} alt={job.name} class="job-image" inferSize />
     )}
   </div>
 
