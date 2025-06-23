@@ -1,10 +1,11 @@
 ---
 import { db } from '../lib/firebaseClient';
 import { collection, getDocs } from 'firebase/firestore';
-import JobDetails from '../components/JobDetail.jsx';
+import JobDetails from '../components/JobDetail.astro';
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import Cover from '../assets/images/jobs-footer.png';
+import Cover from '../assets/images/jobs-cover.png';
+import Footer from '../assets/images/jobs-footer.png';
 
 const snapshot = await getDocs(collection(db, 'jobs'));
 const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -17,7 +18,7 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     <div class="jobs">
         <h2 class="header"><span>AKTUELLE STELLENANGEBOTE</span></h2>
         {jobs.length > 0 ? (
-            jobs.map((job) => <JobDetails client:only="react" job={job} key={job.id} />)
+            jobs.map((job) => <JobDetails job={job} key={job.id} />)
           ) : (
             <p>Zurzeit keine Stellenangebote verfügbar.</p>
         )}
@@ -45,7 +46,7 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         </center>
     </div>
     <section id="hero">
-        <Image src={Cover} alt="Cover" class="cover-photo" />
+        <Image src={Footer} alt="Cover" class="cover-photo" />
     </section>
 </Layout>
 
