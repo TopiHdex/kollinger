@@ -1,14 +1,18 @@
 .job-details-container {
   display: flex;
-  flex-direction: row;
-  gap: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
 
-  .left {
-    flex: 1;
+  .left,
+  .right {
+    flex: 1 1 45%;
+    min-width: 300px;
+  }
 
+  .left {
     h1 {
       font-size: 2rem;
       font-weight: bold;
@@ -18,20 +22,20 @@
     .intro {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
+      line-height: 1.6;
     }
 
     .job-image {
       max-width: 100%;
+      height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
   }
 
   .right {
-    flex: 1.2;
-
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: bold;
       margin-bottom: 1rem;
     }
@@ -42,6 +46,7 @@
       h3 {
         font-weight: bold;
         margin-bottom: 0.5rem;
+        font-size: 1.1rem;
       }
 
       ul {
@@ -50,18 +55,40 @@
 
         li {
           margin-bottom: 0.4rem;
+          font-size: 1rem;
+          line-height: 1.5;
         }
       }
     }
   }
 
+  // Mobile responsiveness
   @media (max-width: 768px) {
     flex-direction: column;
 
     .left,
     .right {
-      flex: none;
-      width: 100%;
+      flex: 1 1 100%;
+    }
+
+    .left {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .intro {
+        font-size: 1rem;
+      }
+    }
+
+    .right {
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      section h3 {
+        font-size: 1rem;
+      }
     }
   }
 }

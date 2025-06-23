@@ -1,0 +1,114 @@
+---
+import { db } from '../lib/firebaseClient';
+import { collection, getDocs } from 'firebase/firestore';
+import JobDetails from '../components/JobDetail.jsx';
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Cover from '../assets/images/jobs-footer.png';
+
+const snapshot = await getDocs(collection(db, 'jobs'));
+const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+---
+
+<Layout>
+    <section id="hero">
+        <Image src={Cover} alt="Cover" class="cover-photo" />
+    </section>
+    <div class="jobs">
+        <h2 class="header"><span>AKTUELLE STELLENANGEBOTE</span></h2>
+        {jobs.length > 0 ? (
+            jobs.map((job) => <JobDetails client:only="react" job={job} key={job.id} />)
+          ) : (
+            <p>Zurzeit keine Stellenangebote verfügbar.</p>
+        )}
+    </div>
+    <div class="contact" style="max-width: 800px; margin: 0 auto;">
+        <center>
+            <b style="font-size: 2rem;">HABEN WIR DEIN INTERESSE GEWECKT?</b>
+            <br>
+            <br>
+            <p>
+                Durch kontinuierliche Weiterentwicklung und langjährige
+                Erfahrung ist die Gießerei Kollinger heute ein anerkannter
+                Spezialist im technischen Feinguss sowie ein geschätzter
+                Partner für Künstler weltweit und renommierte Unternehmen im
+                Prototypen- und Kleinserienbau
+            </p>
+            <br><br><br>
+            <p><b>Dann informiere und bewirb Dich bei</b></p>
+            <p class="no-margin">Sylvia Muff oder Markus Kollinger, Geschäftsführung</p>
+            <p class="no-margin">Daimlerstr. 4</p>
+            <p class="no-margin">89275 Elchingen</p>
+            <p class="no-margin">Tel: 07308/919223</p>
+            <p class="no-margin">Fax: 07308/919225</p>
+            <p class="no-margin">info@kollinger-guss.de</p>
+        </center>
+    </div>
+    <section id="hero">
+        <Image src={Cover} alt="Cover" class="cover-photo" />
+    </section>
+</Layout>
+
+<style>
+#hero {
+    margin-top: calc(60px + 5rem);
+    width: 100vw;
+}
+
+#hero img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.jobs {
+    margin-bottom: 6rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid black;
+}
+
+.header {
+    position: relative;
+    font-size: 4rem;
+    font-weight: 300;
+    text-align: end;
+    padding: 3rem 0;
+    height: 75px;
+    margin: 0;
+}
+
+.header span {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    padding: 0 1.75rem;
+    height: 75px;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 0px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin: auto 0;
+}
+
+.header.left {
+    text-align: start;
+}
+
+.header.left span {
+    right: unset;
+    left: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+</style>
