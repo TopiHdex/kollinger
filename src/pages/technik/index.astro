@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import CoverMaterials from '../../assets/images/RAD.jpg';
-import ProzesseMaterials from '../../assets/images/technik-long-2.png';
 import Bronze from '../../assets/images/materials/bronze.png';
 import Aluminum from '../../assets/images/materials/aluminum.png';
 import Zink from '../../assets/images/materials/zink.png';
@@ -18,10 +17,13 @@ import Slide5 from '../../assets/images/slide-5.png';
 import Slide6 from '../../assets/images/slide-6.png';
 import Leistungen from '../../assets/images/leistungen.jpg';
 import ReferenzenCover from '../../assets/images/referenzen-cover.png';
-import ProzesseRight from '../../assets/images/prozesse-right.png';
-import ProzesseLeft from '../../assets/images/prozesse-left.png';
 import Arrow from '../../assets/images/Arrow.png';
 import Last from '../../assets/images/last-technik.png';
+import Kom11 from '../../assets/images/kom-1-1.png';
+import Kom12 from '../../assets/images/kom-1-2.png';
+import Kom21 from '../../assets/images/kom-2-1.png';
+import Kom22 from '../../assets/images/kom-2-2.png';
+import Kom3 from '../../assets/images/kom-3.png';
 ---
 
 <Layout>
@@ -206,7 +208,73 @@ import Last from '../../assets/images/last-technik.png';
         </div>
     </section>
     <section class="kompetenzen">
-        <h2 class="header"><span>UNSERE PROZESSE</span></h2>
+        <h2 class="header"><span>KOMPETENZEN</span></h2>
+        <div class="sub-header">WIR FERTIGEN NACH VDG P690 UND P202</div>
+        <div class="cards">
+            <div class="card">
+                <div class="left">
+                    <Image src={Kom11} alt="1" />
+                </div>
+                <div class="center">
+                    <Image src={Kom12} alt="1" />
+                </div>
+                <div class="right">
+                    <div class="title">MODTECH C20</div>
+                    <p>
+                        <b>ModTech C20</b> – Wachsspritzanlage zur Vervielfältigung
+                        der Urmodelle in gefräste Aluminium- oder in gegossene
+                        PU- Werkzeuge bis max.
+                    </p>
+                    <p>
+                        • 4L Schussvolumen
+                        <br>
+                        • Spritzdruck 40 Bar
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="left">
+                    <Image src={Kom21} alt="1" />
+                </div>
+                <div class="center">
+                    <Image src={Kom22} alt="1" />
+                </div>
+                <div class="right">
+                    <div class="title">SCHÜCHL</div>
+                    <p>
+                        <b>Schüchl</b> – „UHG 690“ Vakuumkammer zur
+                        Wachsmodellerstellung. Bei geringen Stückzahlen
+                        und höchste Oberflächenanforderungen
+                    </p>
+                    <p>
+                        • Max. Behältervolumen 3,5L
+                        <br>
+                        • max Form-Abmessungen
+                    </p>
+                    <p>
+                        H = 965, B = 690, T = 720 mm
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="left"></div>
+                <div class="center">
+                    <Image src={Kom3} alt="1" />
+                </div>
+                <div class="right">
+                    <div class="title">FEINGUSS-STRECKE</div>
+                    <p>
+                        <b>Automatisierte Feinguss-Strecke</b> von MK-Technology
+                        mit 16 Gehängeplätzen und einer max. Traubenabmes-
+                        sung von 700x700x700mm
+                    </p>
+                    <p>
+                        Inklusive Booster-Trockenschrank der 8.Generation
+                        ermöglicht eine brennfertige Gusstraube in bis zu 5 Std.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="fourth-part">
@@ -695,6 +763,62 @@ gsap.to(".hero4 .parallax", {
                     font-weight: bold;
                     margin: 2rem 0 1.125rem 0;
                     color: #284590;
+                }
+            }
+        }
+    }
+}
+
+.kompetenzen {
+    .cards {
+        display: flex;
+        flex-direction: column;
+
+        .card {
+            display: grid;
+            grid-template-columns: 4fr 4fr 5fr;
+            height: 444px;
+            gap: 0.5rem;
+
+            .left, .center {
+                box-sizing: border-box;
+                height: 444px;
+
+                img {
+                    width: unset;
+                    height: 444px;
+                    aspect-ratio: 1/1;
+                    object-fit: scale-down;
+                }
+            }
+
+            .left {
+                display: flex;
+                justify-content: flex-end;
+
+                img {
+                    transform: scale(0.9);
+                }
+            }
+
+            .center {
+                display: flex ;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .right {
+                .title {
+                    padding: 3rem 0;
+                    padding-bottom: 1rem;
+                    margin-bottom: 2rem;
+                    font-weight: bold;
+                    font-size: 1.75rem;
+                    border-bottom: 1px solid black;
+                }
+
+                p {
+                    max-width: 26rem;
                 }
             }
         }
