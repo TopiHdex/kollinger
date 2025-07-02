@@ -3,7 +3,13 @@ import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import CoverMaterials from '../../assets/images/RAD.jpg';
 import ProzesseMaterials from '../../assets/images/technik-long-2.png';
-import Something from '../../assets/images/der-kopf-3.jpeg';
+import Bronze from '../../assets/images/materials/bronze.png';
+import Aluminum from '../../assets/images/materials/aluminum.png';
+import Zink from '../../assets/images/materials/zink.png';
+import Messing from '../../assets/images/materials/messing.jpg';
+import Silber from '../../assets/images/materials/silber.png';
+import Tombak from '../../assets/images/materials/tombak.png';
+import Others from '../../assets/images/materials/others.png';
 import Slide1 from '../../assets/images/slide-1.png';
 import Slide2 from '../../assets/images/slide-2.png';
 import Slide3 from '../../assets/images/slide-3.png';
@@ -24,73 +30,134 @@ import Last from '../../assets/images/last-technik.png';
             <source src="https://occ87lmc8c.ufs.sh/f/amuZeWyiXfpxcNcO03IdezhJZtWMwjDGxRNo8Lkp3F7lXqfy" type="video/mp4">
         </video>
     </div>
+    <h2 class="header left"><span>UNSER TECHNIKGUSS</span></h2>
     <div class="first-part">
         <div class="left">
-            <h1 class="on-enter">UNSER TECHNIKGUSS</h1>
-            <p class="on-enter">PRÄZISION FÜR TECHNIK</p>
+            <p>PRÄZISION IN GUSS</p>
         </div>
         <div class="right">
             <p class="p1 on-enter">
-                Seit 1993 steht die Kunstgießerei Kollinger für höchste Qualität im Kunstguss
-                und technischen Feinguss. Mit einem feinen Gespür für Form und Material
-                garantieren wir die sorgfältige Bearbeitung und individuelle Behandlung jedes
-                Objekts – vom Unikat bis zur Kleinserie.
+                Unser innovatives Feingussverfahren / Investmentcasting und Sandgussverfahren
+                ermöglicht die präzise Herstellung hochwertiger Gussteile, die den Anforderungen
+                moderner Technologien entsprechen. Dank langjähriger Erfahrung und sorgfältiger
+                Materialauswahl realisieren wir komplexe Konstruktionen mit höchster Qualität.
             </p>
             <p class="p2 on-enter">
-                Unsere Arbeitsprozesse sind flexibel, unsere Lösungen maßgeschneidert.
-                Ob filigrane Skulptur oder komplexer Prototyp – wir setzen Kundenwünsche
-                präzise um und passen uns dabei stets aktuellen Anforderungen und Trends an.
+                Prototypenprozesse liefern wertvolle Erkenntnisse für effiziente, kostengünstige
+                Serienproduktion. Bereits in der Entwicklungsphase profitieren Sie von kurzer
+                Lieferzeit und einem hervorragenden Kosten-Leistungs-Verhältnis.
+            </p>
+            <p class="p2 on-enter">
+                • Unbegrenzter Gestaltungsspielraum bei Geometrien und Hohlräumen
+                <br>
+                • Hohe Maßhaltigkeit für die weitere Anwendung
+                <br>
+                • Exzellente Oberflächenqualität, auch bei filigranen Details
+                <br>
+                • Wirtschaftliche Fertigung komplexer Werkstücke durch effiziente Prozesse
+            </p>
+            <p class="colored on-enter">
+                Vertraulichkeit und Schutz Ihrer Innovationen sind für uns oberste Pflicht.
+            </p>
+            <p class="end">
+                - Kollinger
             </p>
         </div>
     </div>
-    <div class="second-part">
-        <div class="items">
-            <div class="items-title">
-                UNSERE
-                LEISTUNGEN
+
+    <section class="third-part">
+        <div class="materials">
+            <h2 class="header"><span>UNSERE MATERIALIEN</span></h2>
+            <div class="materialsList">
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Bronze} alt="Image 1" />
+                    </div>
+                    <p class="name">BRONZE</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Zink} alt="Image 1" />
+                    </div>
+                    <p class="name">ZINK</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Messing} alt="Image 1" />
+                    </div>
+                    <p class="name">MESSING</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Aluminum} alt="Image 1" />
+                    </div>
+                    <p class="name">ALUMINIUM</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Silber} alt="Image 1" />
+                    </div>
+                    <p class="name">SILBER</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Tombak} alt="Image 1" />
+                    </div>
+                    <p class="name">SILIZIUMBRONZE</p>
+                </article>
+                <article class="material">
+                    <div class="materialImg">
+                        <Image src={Others} alt="Image 1" />
+                    </div>
+                    <p class="name">SONDERLEGIERUNGEN</p>
+                </article>
             </div>
-            <div class="scrolable">
-                <div class="hoverable">
-                    <div class="title">
-                        OBERFLÄCHEN
-                        VEREDELUNG
-                    </div> 
-                    <div class="more">
-                        von Patina über Komplexe Lackierungen bis hin zu vergoldung
-                    </div>
+        </div>
+    </section>
+    <div class="more-materials">
+        <div class="left">
+            <p class="more-materials-title">WIR VERARBEITEN STANDARDMÄSSIG</p>
+            <p class="more-materials-extra">und Sonderlegierungen auf Anfrage</p>
+        </div>
+        <div class="right">
+            <div class="materials-section">
+                <p class="name">SCHWERMETALLE</p>
+                <div class="items">
+                    CuSn5Zn5
+                    <br>
+                    CuSn10
+                    <br>
+                    CuSn12
+                    <br>
+                    CuZn37Pb2
+                    <br>
+                    CuAl10Ni5Fe4
+                    <br>
+                    CuZn15Si4
+                    <br>
+                    Ag935 - Silber
+                    <br>
+                    ZnAl4Cu1
+                    <br>
+                    eCu
                 </div>
-                <div class="hoverable">
-                    <div class="title">
-                        EINZEL
-                        ANFERTIGUNGEN
-                    </div>
-                    <div class="more">
-                        sowie Klein- und vorserien im Sand- oder Feinguss
-                    </div>
-                </div>
-                <div class="hoverable">
-                    <div class="title">INDIVIDUELLES MODELL</div>
-                    <div class="more">
-                        erstellen wir exakt nach ihrer vorlage
-                    </div>
-                </div>
-                <div class="hoverable">
-                    <div class="title">TECHNISCHE PROTOTYPEN</div>
-                    <div class="more">
-                        vom Millimeter-Bauteil bis zur Grossplastik
-                    </div>
-                </div>
-                <div class="hoverable">
-                    <div class="title">MODELLE UND ABFORMUNGEN</div>
-                    <div class="more">
-                        vom Millimeter-Bauteil bis zur Grossplastik
-                    </div>
-                </div>
-                <div class="hoverable">
-                    <div class="title">ERWEITERTE LEISTUNGEN</div>
-                    <div class="more">
-                        wie Montage, technische Anpassungen oder Sonderanfertigungen
-                    </div>
+            </div>
+            <div class="materials-section">
+                <p class="name">LEICHTMETALLE</p>
+                <div class="items">
+                    AlSi7Mg1,3
+                    <br>
+                    AlSi7Mg0,6
+                    <br>
+                    AlSi10Mg
+                    <br>
+                    AlSi10Mg (Cu)
+                    <br>
+                    AlSi12CuNiMg
+                    <br>
+                    AlMg3 / AlMg3Si
+                    <br>
+                    MgAl9Zn1
                 </div>
             </div>
         </div>
@@ -101,113 +168,45 @@ import Last from '../../assets/images/last-technik.png';
             <Image class="image parallax" src={CoverMaterials} alt="Image 1" />
         </div>
         <div class="leistungen">
-            <h2 class="header"><span>UNSERE LEISTUNGEN</span></h2>
+            <h2 class="header left"><span>UNSERE LEISTUNGEN</span></h2>
             <div class="info">
                 <Image class="leistungen-img" src={Leistungen} alt="Image 5" />
                 <div class="info-right">
-                    <p class="info-head">VIELFALT IM METALLGUSS</p>
                     <p>
-                        Ob filigraner Prototyp oder monumentale Skulptur – wir
-                        realisieren Ihre Ideen in hochwertigem Metallguss. Unsere
-                        Expertise ermöglicht maßgeschneiderte Lösungen, unabhängig
-                        von Größe, Komplexität oder Materialanforderung.
+                        Wir unterstützen Sie gerne mit Beratung über vor- und nachgelagerten
+                        Arbeitsschritte im Bereich Gussprodukte
                     </p>
                     <p>
-                        Vertraulichkeit und der Schutz Ihrer kreativen Arbeit sind
-                        für uns selbstverständlich: Ihre Daten und Urheberrechte
-                        behandeln wir mit größter Sorgfalt.
+                        • 3D-Scan, CAD-Konstruktion und Datenaufbereitung für die Modellherstellung
+                        <br>
+                        • Modellherstellung über 3D-Druck, CNC-Fräsen
+                        <br>
+                        • Abformungen als Silikon- oder gefrästen Formen für
+                        <br>
+                        • Herstellung von Wachsmodellen über Vakuum- oder Spritzguss
+                        <br>
+                        • Wärmebehandlung Spannungsfreiglühen Härten
+                    </p>
+                    <p class="info-head">TECHNISCHE PRÜFVERFAHREN</p>
+                    <p>
+                        • GOM-Vermessung, Best-Fit
+                        <br>
+                        • Spektralanalyse,
+                        <br>
+                        • Zugproben
+                        <br>
+                        • Rissprüfung
+                        <br>
+                        • Dichtheitsprüfung
+                        <br>
+                        • Röntgenprüfung
                     </p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="prozesse-part">
-        <div class="hero3">
-            <Image class="image parallax" src={ProzesseMaterials} alt="Image 1" />
-        </div>
-        <div class="prozesse">
-            <h2 class="header left"><span>UNSERE PROZESSE</span></h2>
-            <div class="prozesse-info">
-                <div class="prozesse-left">PRÄZISION FÜR HÖCHSTE ANSPRÜCHE</div>
-                <div class="prozesse-right">
-                    Unser Feinguss-Verfahren ermöglicht die Fertigung von Werkstücken in außergewöhnlich
-                    hoher Qualität – exakt abgestimmt auf die komplexen Anforderungen moderner Technik.
-                    Dank langjähriger Erfahrung und der präzisen Auswahl geeigneter Gusswerkstoffe erzielen
-                    wir selbst bei anspruchsvollen Konstruktionen optimale Ergebnisse.
-                </div>
-            </div>
-            <div class="prozesse-list">
-                <div class="prozesse-row prozesse-row-1">
-                    <div class="prozesse-item">
-                        <div class="process-title">VOR DEM GUSS</div>
-                        <div class="process-sub">
-                            Digitale & physische Modellvorbereitung
-                        </div>
-                        <ul>
-                            <li>3D-Scan bestehender Objekte</li>
-                            <li>CAD-Konstruktion & Datenaufbereitung</li>
-                            <li>Modellherstellung via 3D-Druck, CNC-Fräsen oder manuelle Modellierung</li>
-                            <li>Erstellung von Silikonformen und Sandformen</li>
-                        </ul>
-                    </div>
-                    <div class="prozesse-item">
-                        <div class="process-title">GUSS & VEREDELUNG</div>
-                        <div class="process-sub">
-                            Der eigentliche Gussprozess
-                        </div>
-                        <ul>
-                            <li>
-                                Feinguss und Sandguss in unterschiedlichen
-                                Metallen und Legierungen
-                            </li>
-                            <li>Schleifen, Polieren, Patinieren</li>
-                            <li>Technische Lackierungen, Korrosionsschutz</li>
-                            <li>Veredelungen wie Versilberung, Vergoldung</li>
-                            <li>
-                                Wärmebehandlungen: spannungsfreies Glühen
-                                (z. B. für Kupferguss)
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="prozesse-row prozesse-row-2">
-                    <div class="prozesse-item">
-                        <div class="process-title">PRÜFVERFAHREN</div>
-                        <div class="process-sub">
-                            Qualität, die sichtbar wird
-                        </div>
-                        <ul>
-                            <li>GOM-3D-Vermessung</li>
-                            <li>Spektralanalyse zur Legierungsprüfung</li>
-                            <li>Rissprüfung (z. B. Farbeindringverfahren)</li>
-                            <li>Zugproben & Drucktests</li>
-                            <li>Dichteprüfung</li>
-                            <li>Thermoanalyse</li>
-                            <li>Röntgenprüfung für innere Fehlstellen</li>
-                        </ul>
-                    </div>
-                    <div class="prozesse-item">
-                        <div class="process-title">NACH DEM GUSS</div>
-                        <div class="process-sub">
-                            Montage, Technik & Platzierung
-                        </div>
-                        <p>
-                            Montage und Transport großformatiger Skulpturen
-                            Statische Berechnungen und Vorbereitung der
-                            Fundamente Integration von Technik: z. B.
-                            Wasserführung in Brunnenprojekten Abstimmung mit
-                            Architekten, Galerien oder Bauleitung Pflege- und
-                            Wartungshinweise für Außenobjekte.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="prozesse-imgs">
-                <Image src={ProzesseLeft} alt="Prozesse Left" />
-                <Image src={ProzesseRight} alt="Prozesse Right" />
-            </div>
-        </div>
+    <section class="kompetenzen">
+        <h2 class="header"><span>UNSERE PROZESSE</span></h2>
     </section>
 
     <section class="fourth-part">
@@ -324,83 +323,33 @@ gsap.from(".on-enter", {
     ease: "power2.out"
 });
 
-gsap.to(".hero .parallax", {
+const tlMaterials = gsap.timeline({
     scrollTrigger: {
-        trigger: ".hero",
+        scrub: true,
+        pin: true,
+        trigger: ".materials",
+        start: "50% 50%",
+        endTrigger: ".third-part",
+        end: "bottom 80%",
+    },
+});
+tlMaterials
+    .from(".materialsList .material", {
+        scale: 0.8,
+        stagger: -0.15,
+        ease: "power2.inOut"
+    });
+
+
+gsap.to(".first-part", {
+    scrollTrigger: {
+        trigger: ".first-part",
         start: "top top",
         end: "bottom top",
         scrub: true
     },
-    y: 200,
-    filter: "blur(8px)",
-    scale: 1.01,
+    y: -100
 });
-
-gsap.to(".first-part", {
-  scrollTrigger: {
-    trigger: ".first-part",
-    start: "top top",
-    end: "bottom top",
-    scrub: true
-  },
-  y: -100
-});
-
-gsap.from(".second-part .hoverable", {
-    scrollTrigger: {
-        trigger: ".second-part",
-        start: "top 65%",
-        end: "top 30%",
-        toggleActions: "play none none none",
-        scrub: true,
-    },
-    y: 40,
-    opacity: 0,
-    stagger: 0.15,
-    ease: "power2.out"
-});
-
-const something = gsap.timeline({
-    scrollTrigger: {
-        scrub: true,
-        pin: true,
-        trigger: ".second-part .something",
-        start: "50% 50%",
-        endTrigger: ".second-part",
-        end: "bottom -10%",
-    },
-});
-something.fromTo(".second-part .something", {
-    opacity: 0,
-    scale: 1,
-    duration: 1,
-}, { opacity: 1, scale: 1.5, duration: 1, }).to(".second-part .something", {
-    scale: 2,
-    opacity: 1,
-    duration: 2,
-}).to(".second-part .something", {
-    scale: 2.5,
-    opacity: 0,
-    duration: 1,
-});
-
-const tl = gsap.timeline({
-    scrollTrigger: {
-        scrub: true,
-        pin: true,
-        trigger: ".second-part .items",
-        start: "60% 40%",
-        endTrigger: ".second-part",
-        end: "bottom 80%",
-    },
-});
-tl.from(".second-part .more", {
-    y: 40,
-    opacity: 0,
-    stagger: 0.5,
-    ease: "power2.out"
-});
-
 gsap.to(".hero2 .parallax", {
     scrollTrigger: {
         trigger: ".hero2",
@@ -410,6 +359,7 @@ gsap.to(".hero2 .parallax", {
     },
     y: 100,
 });
+
 
 const tlSlider = gsap.timeline({
     scrollTrigger: {
@@ -423,15 +373,6 @@ const tlSlider = gsap.timeline({
 });
 tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in" });
 
-gsap.to(".hero3 .parallax", {
-    scrollTrigger: {
-        trigger: ".hero3",
-        start: "top 80%",
-        end: "bottom top",
-        scrub: true
-    },
-    y: 100,
-});
 gsap.to(".hero4 .parallax", {
     scrollTrigger: {
         trigger: ".hero4",
@@ -457,36 +398,46 @@ gsap.to(".hero4 .parallax", {
 
 .first-part {
     display: grid;
-    grid-template-columns: 11fr 13fr;
+    grid-template-columns: 10fr 15fr;
     gap: 2rem;
-    padding-top: 2rem;
     background-color: white;
+    margin-top: -2rem;
 
     .left {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-start;
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 300;
-            margin: 0;
-        }
+        text-align: end;
 
         p {
             font-weight: bold;
+            color: #284590;
+            margin: 0;
         }
     }
 
     .right {
-        margin-top: 2.5rem;
-        border-top: 1px solid black;
-        padding: 2rem 4rem;
+        padding: 0 4rem 2rem 4rem;
 
         p {
             max-width: 580px;
+
+            &.p1 {
+                margin-top: 0;
+            }
+
+            &.colored {
+                color: #284590;
+                font-weight: bold;
+            }
+
+            &.end {
+                font-weight: bold;
+                text-align: end;
+            }
         }
+
     }
 }
 
@@ -566,6 +517,59 @@ gsap.to(".hero4 .parallax", {
                     font-weight: bold;
                     text-align: center;
                 }
+            }
+        }
+    }
+}
+
+.more-materials {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px 5rem;
+    gap: 80px;
+    margin-bottom: 3.5rem;
+
+    .left {
+        flex: 1;
+        text-align: end;
+
+        .more-materials-title {
+            font-weight: bold;
+            font-size: 1.75rem;
+            color: #284590;
+            margin: 0;
+        }
+
+        .more-materials-extra {
+            font-weight: bold;
+            font-size: 1.125rem;
+            margin-top: 5px;
+        }
+    }
+
+    .right {
+        display: flex;
+        gap: 80px;
+
+        .materials-section {
+            min-width: 300px;
+            display: flex;
+            gap: 0 1.75rem;
+
+            .name {
+                margin: 0;
+                font-weight: bold;
+                font-size: 1.75rem;
+                margin-bottom: 10px;
+            }
+
+            .items {
+                padding-left: 20px;
+                padding-top: 1.75rem;
+                border-left: 1px solid #000;
+                font-size: 1.125rem;
+                line-height: 1.8;
             }
         }
     }
@@ -658,9 +662,6 @@ gsap.to(".hero4 .parallax", {
 }
 
 .fifth-part {
-    margin-bottom: 5rem;
-    border-bottom: 1px solid black;
-
     .hero2 {
         height: 560px;
         width: 100%;
@@ -676,10 +677,9 @@ gsap.to(".hero4 .parallax", {
 
     .leistungen {
         img.leistungen-img {
-            margin-top: calc(-3rem - 37px);
-            height: 60vh;
+            height: 40vh;
             object-fit: cover;
-            object-position: top;
+            object-position: center;
             width: 45vw;
         }
 
@@ -690,115 +690,12 @@ gsap.to(".hero4 .parallax", {
 
             .info-right {
                 width: 600px;
-                margin-top: -7rem;
 
                 .info-head {
                     font-weight: bold;
+                    margin: 2rem 0 1.125rem 0;
+                    color: #284590;
                 }
-            }
-        }
-    }
-}
-
-.prozesse-part {
-    .hero3 {
-        height: 560px;
-        width: 100%;
-        overflow: hidden;
-
-        img {
-            width: 100%;
-            height: calc(100% + 100px);
-            object-fit: cover;
-            transform: translateY(-120px);
-        }
-    }
-
-    .prozesse-info {
-        display: flex;
-        margin: -2.5rem 0;
-        padding: 0 1.75rem;
-        gap: 10rem;
-
-        .prozesse-left {
-            width: 570px;
-            text-align: end;
-            font-weight: bold;
-        }
-
-        .prozesse-right {
-            max-width: 700px;
-        }
-    }
-
-    .prozesse-list {
-        padding: 12rem 5rem;
-        padding-bottom: 7rem;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-
-        .prozesse-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-
-            &.prozesse-row-2 {
-                justify-items: end;
-            }
-
-            .prozesse-item {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-                width: 400px;
-                opacity: 0.55;
-                transition: 0.3s ease-in;
-                transform: scale(1);
-
-                &:hover {
-                    opacity: 1;
-                    transform: scale(1.05);
-                }
-
-                .process-title {
-                    font-weight: bold;
-                    font-size: 1.5rem;
-                }
-
-                .process-sub {
-                    font-weight: bold;
-                    font-size: 1.125rem;
-                }
-
-                ul {
-                    margin: 1rem 0;
-                }
-            }
-        }
-    }
-
-    .prozesse-imgs {
-        display: flex;
-        height: 30rem;
-        justify-content: space-evenly;
-        align-items: center;
-        margin-bottom: 5rem;
-
-        img {
-            width: 25rem;
-            object-fit: cover;
-            height: 25rem;
-            transition: 0.3s ease-in;
-            opacity: 0.7;
-
-            &:nth-child(2) {
-                width: 30rem;
-                height: 30rem;
-            }
-
-            &:hover {
-                transform: scale(1.05);
-                opacity: 1;
             }
         }
     }
@@ -822,6 +719,7 @@ gsap.to(".hero4 .parallax", {
         margin: auto 0;
         padding: 0 1.75rem;
         height: 75px;
+        font-weight: 600;
     }
 
     &::before {
@@ -844,6 +742,16 @@ gsap.to(".hero4 .parallax", {
             left: 0;
         }
     }
+}
+
+.sub-header {
+    font-size: 1.125rem;
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+    padding: 0 1.75rem;
+    font-weight: bold;
+    color: #284590;
+    text-align: end;
 }
 
 .final {
