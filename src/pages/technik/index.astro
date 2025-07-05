@@ -9,20 +9,19 @@ import Messing from '../../assets/images/materials/messing.jpg';
 import Silber from '../../assets/images/materials/silber.png';
 import Tombak from '../../assets/images/materials/tombak.png';
 import Others from '../../assets/images/materials/others.png';
-import Slide1 from '../../assets/images/slide-1.png';
-import Slide2 from '../../assets/images/slide-2.png';
-import Slide3 from '../../assets/images/slide-3.png';
-import Slide4 from '../../assets/images/slide-4.png';
-import Slide5 from '../../assets/images/slide-5.png';
-import Slide6 from '../../assets/images/slide-6.png';
-import Leistungen from '../../assets/images/leistungen.jpg';
 import Arrow from '../../assets/images/Arrow.png';
-import Last from '../../assets/images/last-technik.png';
+import Last from '../../assets/images/last-technik.jpg';
 import Kom11 from '../../assets/images/kom-1-1.png';
-import Kom12 from '../../assets/images/kom-1-2.png';
+import Kom12 from '../../assets/images/kom-1-2.jpg';
 import Kom21 from '../../assets/images/kom-2-1.png';
-import Kom22 from '../../assets/images/kom-2-2.png';
-import Kom3 from '../../assets/images/kom-3.png';
+import Kom22 from '../../assets/images/kom-2-2.jpg';
+import Kom3 from '../../assets/images/kom-3.jpg';
+import Ref1 from '../../assets/images/r-1.jpg';
+import Ref2 from '../../assets/images/r-2.jpg';
+import Ref3 from '../../assets/images/r-3.jpg';
+import Ref4 from '../../assets/images/r-4.jpg';
+import Ref5 from '../../assets/images/r-5.jpg';
+import Ref6 from '../../assets/images/r-6.jpg';
 ---
 
 <Layout>
@@ -171,7 +170,7 @@ import Kom3 from '../../assets/images/kom-3.png';
         <div class="leistungen">
             <h2 class="header left"><span>UNSERE LEISTUNGEN</span></h2>
             <div class="info">
-                <Image class="leistungen-img" src={Leistungen} alt="Image 5" />
+                <div></div>
                 <div class="info-right">
                     <p>
                         Wir unterstützen Sie gerne mit Beratung über vor- und nachgelagerten
@@ -282,7 +281,7 @@ import Kom3 from '../../assets/images/kom-3.png';
             <div class="slider-bg">
                 <div class="slider">
                     <div class="slide c5">
-                        <Image class="image" src={Slide1} alt="Image 5" />
+                        <Image class="image" src={Ref1} alt="Image 5" />
                         <div class="item-body">
                             <p class="item-name">MOTORKRÜMMER</p>
                             <p class="item-desc">
@@ -295,7 +294,7 @@ import Kom3 from '../../assets/images/kom-3.png';
                         </div>
                     </div>
                     <div class="slide c5">
-                        <Image class="image" src={Slide2} alt="Image 5" />
+                        <Image class="image" src={Ref2} alt="Image 5" />
                         <div class="item-body">
                             <p class="item-name">KOMPRESSORGEHÄUSE</p>
                             <p class="item-desc">
@@ -308,7 +307,7 @@ import Kom3 from '../../assets/images/kom-3.png';
                         </div>
                     </div>
                     <div class="slide c5">
-                        <Image class="image" src={Slide3} alt="Image 5" />
+                        <Image class="image" src={Ref3} alt="Image 5" />
                         <div class="item-body">
                             <p class="item-name">LUFTGEKÜHLTER</p>
                             <p class="item-desc">
@@ -322,7 +321,7 @@ import Kom3 from '../../assets/images/kom-3.png';
                         </div>
                     </div>
                     <div class="slide c5">
-                        <Image class="image" src={Slide4} alt="Image 5" />
+                        <Image class="image" src={Ref4} alt="Image 5" />
                         <div class="item-body">
                             <p class="item-name">VENTILBLOCK</p>
                             <p class="item-desc">
@@ -335,7 +334,7 @@ import Kom3 from '../../assets/images/kom-3.png';
                         </div>
                     </div>
                     <div class="slide c5">
-                        <Image class="image" src={Slide5} alt="Image 5" />
+                        <Image class="image" src={Ref5} alt="Image 5" />
                         <div class="item-body">
                             <p class="item-name">ZIELOPTIK-GEHÄUSE</p>
                             <p class="item-desc">
@@ -347,7 +346,7 @@ import Kom3 from '../../assets/images/kom-3.png';
                         </div>
                     </div>
                     <div class="slide c5">
-                        <Image class="image" src={Slide6} alt="Image 5" />
+                        <Image class="image" src={Ref6} alt="Image 5" />
                         <div class="item-body">
                             <p class="item-name">WASSERVENTILGEHÄUSE</p>
                             <p class="item-desc">
@@ -364,13 +363,6 @@ import Kom3 from '../../assets/images/kom-3.png';
                     <a href="/technik/referenzen">
                         VIDEO SHOWCASE
                     </a>
-                </div>
-                <div style="color: #284590;font-weight: bold;font-size: 1.75rem;text-align: center;">
-                    Bei meinen Gussteilen kam es nicht nur auf Präzision an, sondern auch auf handwerkliches Feingefühl und
-                    <br>
-                    das Verständnis für die Bauteilproblematik – die Gießerei hat dies perfekt vereint.“
-                    <br>
-                    <p style="font-weight: 400; font-size: 1.125rem; text-align: end;padding-right: 6rem;">– Bernd, Techniker</p>
                 </div>
             </div>
         </div>
@@ -902,6 +894,7 @@ gsap.to(".hero2 .parallax", {
         width: 100%;
 
         img {
+            height: 552px;
             width: 100%;
             object-fit: cover;
         }
