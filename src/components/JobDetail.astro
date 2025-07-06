@@ -35,21 +35,21 @@ const { job } = Astro.props;
     <section>
       <h3>Anforderungen</h3>
       <ul>
-        {job.requirements.map(req => <li>- {req}</li>)}
+        {job.requirements.map(req => <li>{req}</li>)}
       </ul>
     </section>
 
     <section>
       <h3>Dann erwarten Dich bei uns folgende Aufgaben</h3>
       <ul>
-        {job.tasks.map(task => <li>- {task}</li>)}
+        {job.tasks.map(task => <li>{task}</li>)}
       </ul>
     </section>
 
     <section>
       <h3>Wir bieten</h3>
       <ul>
-        {job.offer.map(item => <li>- {item}</li>)}
+        {job.offer.map(item => <li>{item}</li>)}
       </ul>
     </section>
   </div>
