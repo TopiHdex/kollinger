@@ -148,8 +148,10 @@ $button-bg: #ddd;
 
 .loading-overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(255, 255, 255, 0.6);
   display: flex;
   gap: 1rem;
@@ -167,6 +169,24 @@ $button-bg: #ddd;
   }
 
   @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
+}
+
+button {
+  background-color: #0070f3;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #005ecb;
+  }
+
 }

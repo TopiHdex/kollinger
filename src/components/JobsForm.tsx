@@ -178,105 +178,115 @@ const JobManager = () => {
         }
     };
 
+    const publish = () => {
+        const confirm = window.confirm("Are you sure you want to publish?");
+        if (!confirm) return;
+
+        fetch('https://api.vercel.com/v1/integrations/deploy/prj_Az0b0vAg5ub2On8prkJaOAIp9fOu/iqnfhwU8qP', { method: 'POST' })
+    };
+
     return (
-        <div className="job-manager">
-            <aside className="job-list">
-                <h3>Job Positions</h3>
-                <ul>
-                    {jobs.map((job) => (
-                        <li
-                            key={job.id}
-                            className={selectedJobId === job.id ? "active" : ""}
-                            onClick={() => handleSelectJob(job)}
-                        >
-                            {job.name}
-                        </li>
-                    ))}
-                </ul>
-            </aside>
-
-            <form className="job-form" onSubmit={handleSubmit}>
-                <h2>{selectedJobId ? "Edit Job" : "New Job"}</h2>
-
-                <label>
-                    Job Name:
-                    <input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) =>
-                            setFormData({ ...formData, name: e.target.value })
-                        }
-                        required
-                        disabled={loading}
-                    />
-                </label>
-
-                <label>
-                    Small Description:
-                    <textarea
-                        value={formData.description}
-                        onChange={(e) =>
-                            setFormData({ ...formData, description: e.target.value })
-                        }
-                        required
-                        disabled={loading}
-                    />
-                </label>
-
-                {["requirements", "tasks", "offer"].map((field) => (
-                    <div key={field}>
-                        <label>{field.charAt(0).toUpperCase() + field.slice(1)}:</label>
-                        {formData[field].map((item, idx) => (
-                            <div className="array-item" key={idx}>
-                                <input
-                                    type="text"
-                                    value={item}
-                                    onChange={(e) => handleArrayChange(field, idx, e.target.value)}
-                                    placeholder={`Enter ${field} ${idx + 1}`}
-                                    required
-                                    disabled={loading}
-                                />
-                                <button
-                                    type="button"
-                                    className="delete-btn"
-                                    onClick={() => removeArrayItem(field, idx)}
-                                    title="Remove item"
-                                    disabled={loading}
-                                >
-                                    🗑
-                                </button>
-                            </div>
+        <>
+            <button onClick={publish} style={{ margin: '1rem auto', display: 'block' }}>Publish</button>
+            <div className="job-manager">
+                <aside className="job-list">
+                    <h3>Job Positions</h3>
+                    <ul>
+                        {jobs.map((job) => (
+                            <li
+                                key={job.id}
+                                className={selectedJobId === job.id ? "active" : ""}
+                                onClick={() => handleSelectJob(job)}
+                            >
+                                {job.name}
+                            </li>
                         ))}
-                        <button disabled={loading} type="button" onClick={() => addArrayItem(field)}>
-                            + Add {field}
+                    </ul>
+                </aside>
+
+                <form className="job-form" onSubmit={handleSubmit}>
+                    <h2>{selectedJobId ? "Edit Job" : "New Job"}</h2>
+
+                    <label>
+                        Job Name:
+                        <input
+                            type="text"
+                            value={formData.name}
+                            onChange={(e) =>
+                                setFormData({ ...formData, name: e.target.value })
+                            }
+                            required
+                            disabled={loading}
+                        />
+                    </label>
+
+                    <label>
+                        Small Description:
+                        <textarea
+                            value={formData.description}
+                            onChange={(e) =>
+                                setFormData({ ...formData, description: e.target.value })
+                            }
+                            required
+                            disabled={loading}
+                        />
+                    </label>
+
+                    {["requirements", "tasks", "offer"].map((field) => (
+                        <div key={field}>
+                            <label>{field.charAt(0).toUpperCase() + field.slice(1)}:</label>
+                            {formData[field].map((item, idx) => (
+                                <div className="array-item" key={idx}>
+                                    <input
+                                        type="text"
+                                        value={item}
+                                        onChange={(e) => handleArrayChange(field, idx, e.target.value)}
+                                        placeholder={`Enter ${field} ${idx + 1}`}
+                                        required
+                                        disabled={loading}
+                                    />
+                                    <button
+                                        type="button"
+                                        className="delete-btn"
+                                        onClick={() => removeArrayItem(field, idx)}
+                                        title="Remove item"
+                                        disabled={loading}
+                                    >
+                                        🗑
+                                    </button>
+                                </div>
+                            ))}
+                            <button disabled={loading} type="button" onClick={() => addArrayItem(field)}>
+                                + Add {field}
+                            </button>
+                        </div>
+                    ))}
+
+                    <label>
+                        Job Image:
+                        <input type="file" accept="image/*" onChange={handleImageChange} />
+                    </label>
+
+                    <button type="submit">{selectedJobId ? "Update" : "Create"} Job</button>
+                    {selectedJobId && (
+                        <button
+                            type="button"
+                            onClick={handleDeleteJob}
+                            className="delete-job-btn"
+                            disabled={loading}
+                        >
+                            🗑 Delete Job
                         </button>
+                    )}
+                </form>
+                {loading && (
+                    <div className="loading-overlay">
+                        <div className="spinner" />
+                        <p>Loading...</p>
                     </div>
-                ))}
-
-                <label>
-                    Job Image:
-                    <input type="file" accept="image/*" onChange={handleImageChange} />
-                </label>
-
-                <button type="submit">{selectedJobId ? "Update" : "Create"} Job</button>
-                {selectedJobId && (
-                    <button
-                        type="button"
-                        onClick={handleDeleteJob}
-                        className="delete-job-btn"
-                        disabled={loading}
-                    >
-                        🗑 Delete Job
-                    </button>
                 )}
-            </form>
-            {loading && (
-                <div className="loading-overlay">
-                    <div className="spinner" />
-                    <p>Loading...</p>
-                </div>
-            )}
-        </div>
+            </div>
+        </>
     );
 };
 
