@@ -19,6 +19,7 @@ import Leistungen2 from '../../assets/images/leistungen-2.jpg';
 import CoverLeistungen from '../../assets/images/cover-leistungen.jpg';
 import Arrow from '../../assets/images/Arrow.png';
 import Last from '../../assets/images/last-kunst.jpg';
+import Signature from '../../assets/images/signature.png';
 ---
 
 <Layout>
@@ -57,7 +58,10 @@ import Last from '../../assets/images/last-kunst.jpg';
                     Auf Wunsch übernehmen wir auch Lieferung und Montage vor Ort
                     – alles aus einer Hand.
                 </p>
-                <p class="end">
+                <p class="on-enter">
+                    <Image src={Signature} alt="Kollinger Signature" />
+                </p>
+                <p class="end on-enter">
                     - Kollinger
                 </p>
             </div>
@@ -543,6 +547,13 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in"
             }
         }
 
+        img {
+            width: 300px;
+            aspect-ratio: 1502 / 600;
+            height: unset;
+            margin-left: auto;
+            display: block;
+        }
     }
 }
 

@@ -22,6 +22,7 @@ import Ref3 from '../../assets/images/r-3.jpg';
 import Ref4 from '../../assets/images/r-4.jpg';
 import Ref5 from '../../assets/images/r-5.jpg';
 import Ref6 from '../../assets/images/r-6.jpg';
+import Signature from '../../assets/images/signature.png';
 ---
 
 <Layout>
@@ -60,7 +61,10 @@ import Ref6 from '../../assets/images/r-6.jpg';
                 <p class="colored on-enter">
                     Vertraulichkeit und Schutz Ihrer Innovationen sind für uns oberste Pflicht.
                 </p>
-                <p class="end">
+                <p class="on-enter">
+                    <Image src={Signature} alt="Kollinger Signature" />
+                </p>
+                <p class="end on-enter">
                     - Kollinger
                 </p>
             </div>
@@ -527,6 +531,13 @@ gsap.to(".hero2 .parallax", {
             }
         }
 
+        img {
+            width: 300px;
+            aspect-ratio: 1502 / 600;
+            height: unset;
+            margin-left: auto;
+            display: block;
+        }
     }
 }
 
