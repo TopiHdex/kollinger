@@ -4,7 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import JobDetails from '../components/JobDetail.astro';
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import Cover from '../assets/images/jobs-cover.png';
+import Cover from '../assets/images/jobs-cover.jpg';
 import Footer from '../assets/images/jobs-footer.png';
 
 const snapshot = await getDocs(collection(db, 'jobs'));
@@ -15,7 +15,7 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     <section id="hero">
         <Image src={Cover} alt="Cover" class="cover-photo" />
     </section>
-    <div class="jobs">
+    <div class="jobs capped">
         <h2 class="header"><span>AKTUELLE STELLENANGEBOTE</span></h2>
         {jobs.length > 0 ? (
             jobs.map((job) => <JobDetails job={job} key={job.id} />)
@@ -51,6 +51,11 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 </Layout>
 
 <style>
+.capped {
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
 #hero {
     margin-top: calc(60px + 5rem);
     width: 100vw;
@@ -58,6 +63,7 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
 #hero img {
     width: 100%;
+    height: 650px;
     object-fit: cover;
 }
 
@@ -75,6 +81,7 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     padding: 3rem 0;
     height: 75px;
     margin: 0;
+    font-weight: 600;
 }
 
 .header span {
