@@ -21,7 +21,7 @@ body, html {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation: slideShow 10s infinite;
+    animation: slideShow 10s infinite ease-in-out;
   }
 
   .slide1 { background-image: url('/images/slide1.jpeg'); animation-delay: 0s; }
@@ -32,9 +32,9 @@ body, html {
 
 @keyframes slideShow {
   0% { opacity: 0; }
-  20% { opacity: 1; }
+  10% { opacity: 1; }
   30% { opacity: 1; }
-  70% { opacity: 0; }
+  40% { opacity: 0; }
   100% { opacity: 0; }
 }
 
