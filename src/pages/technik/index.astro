@@ -176,7 +176,11 @@ import Signature from '../../assets/images/signature.png';
         <div class="leistungen capped">
             <h2 class="header left"><span>UNSERE LEISTUNGEN</span></h2>
             <div class="info">
-                <div></div>
+                <div>
+                    <video id="scroll-video" class="image parallax" preload="auto" autoplay muted loop playsinline>
+                        <source src="https://occ87lmc8c.ufs.sh/f/amuZeWyiXfpx5sPceQH1NT95jibd7tuzZhA6CE0PVrwqFySp">
+                    </video>
+                </div>
                 <div class="info-right">
                     <p>
                         Wir unterstützen Sie gerne mit Beratung über vor- und nachgelagerten
@@ -470,6 +474,25 @@ gsap.to(".hero2 .parallax", {
 });
 
 
+// const tl = gsap.timeline({
+//     scrollTrigger: {
+//         scrub: true,
+//         pin: true,
+//         trigger: ".leistungen",
+//         start: "50% 50%",
+//         endTrigger: ".fifth-part",
+//         end: "bottom 80%",
+//     },
+// });
+// const video = document.querySelector("#scroll-video");
+// if (video) {
+//     video.pause();
+//     tl.to(video, {
+//         currentTime: video.duration,
+//         ease: "power1.inOut"
+//     });
+// }
+
 </script>
 
 <style>
@@ -760,6 +783,7 @@ gsap.to(".hero2 .parallax", {
 }
 
 .fifth-part {
+    /* height: 300vh; */
     .hero2 {
         height: 560px;
         width: 100%;
