@@ -23,7 +23,7 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             <p>Zurzeit keine Stellenangebote verfügbar.</p>
         )}
     </div>
-    <div class="contact" style="max-width: 800px; margin: 0 auto;padding-top: 5rem" id="kontakt">
+    <div class="contact" style="max-width: 800px; margin: 0 auto;padding-top: 5rem; padding-bottom: 7rem" id="kontakt">
         <center>
             <b style="font-size: 2rem;">HABEN WIR DEIN INTERESSE GEWECKT?</b>
             <br>
@@ -45,9 +45,6 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             <p class="no-margin">info@kollinger-guss.de</p>
         </center>
     </div>
-    <section id="hero">
-        <Image src={Footer} alt="Cover" class="cover-photo" />
-    </section>
 </Layout>
 
 <style>
@@ -63,7 +60,7 @@ const jobs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
 #hero img {
     width: 100%;
-    height: 650px;
+    height: unset;
     object-fit: cover;
 }
 
