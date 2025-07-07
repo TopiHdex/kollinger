@@ -32,9 +32,9 @@ body, html {
 
 @keyframes slideShow {
   0% { opacity: 0; }
-  5% { opacity: 1; }
+  20% { opacity: 1; }
   30% { opacity: 1; }
-  40% { opacity: 0; }
+  70% { opacity: 0; }
   100% { opacity: 0; }
 }
 
