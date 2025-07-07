@@ -28,7 +28,9 @@ const isKontakt = urlPath.includes('/kontakt');
 	<body>
         <nav>
             <p>
-                KOLLINGER
+                <a href="/" class="bold" style={`text-decoration: none;color: ${isTechnik ? '#284590' : '#A48B66'}`}>
+                    KOLLINGER
+                </a>
                 <a href="/kunst" class={`kunks ${isKunst ? 'bold' : ''}`}>KUNST</a>/
                 <a href="/technik" class={`technik ${isTechnik ? 'bold' : ''}`}>TECHNIK</a>
             </p>
