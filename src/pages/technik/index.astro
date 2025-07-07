@@ -176,9 +176,9 @@ import Signature from '../../assets/images/signature.png';
         <div class="leistungen capped">
             <h2 class="header left"><span>UNSERE LEISTUNGEN</span></h2>
             <div class="info">
-                <div>
+                <div class="video-cont">
                     <video id="scroll-video" class="image parallax" preload="auto" autoplay muted loop playsinline>
-                        <source src="https://occ87lmc8c.ufs.sh/f/amuZeWyiXfpx5sPceQH1NT95jibd7tuzZhA6CE0PVrwqFySp">
+                        <source src="https://occ87lmc8c.ufs.sh/f/amuZeWyiXfpxHAAf2SB9BCwI2pq0LTSMFd13RUKtzigxuWkr">
                     </video>
                 </div>
                 <div class="info-right">
@@ -809,6 +809,12 @@ gsap.to(".hero2 .parallax", {
             display: grid;
             align-items: center;
             grid-template-columns: 750px 1fr;
+
+            .video-cont {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
 
             .info-right {
                 width: 600px;
