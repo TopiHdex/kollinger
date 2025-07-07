@@ -23,6 +23,7 @@ import Ref4 from '../../assets/images/r-4.jpg';
 import Ref5 from '../../assets/images/r-5.jpg';
 import Ref6 from '../../assets/images/r-6.jpg';
 import Signature from '../../assets/images/signature.png';
+import Transparent from '../../assets/images/transparent.png';
 ---
 
 <Layout>
@@ -265,7 +266,9 @@ import Signature from '../../assets/images/signature.png';
                 </div>
             </div>
             <div class="card">
-                <div class="left"></div>
+                <div class="left">
+                    <Image src={Transparent} alt="1" />
+                </div>
                 <div class="center">
                     <Image src={Kom3} alt="1" />
                 </div>
@@ -855,10 +858,6 @@ gsap.to(".hero2 .parallax", {
             .left {
                 display: flex;
                 justify-content: flex-end;
-
-                img {
-                    transform: scale(0.9);
-                }
             }
 
             .center {
