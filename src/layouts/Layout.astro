@@ -37,6 +37,9 @@ const isKontakt = urlPath.includes('/kontakt');
                 <a href="/kunst" class={`kunks ${isKunst ? 'bold' : ''}`}>KUNST</a>/
                 <a href="/technik" class={`technik ${isTechnik ? 'bold' : ''}`}>TECHNIK</a>
             </p>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                ☰
+            </button>
             <div class="links">
                 <div class="dropdown-container">
                     <a href={`/${isKunst ? 'kunst' : 'technik'}/referenzen`} class={isReferenzen ? 'active' : ''}>REFERENZEN</a>
@@ -76,6 +79,38 @@ const isKontakt = urlPath.includes('/kontakt');
                 <a href="/impressum">Impressum</a>
             </div>
         </footer>
+        <script>
+        const navActions = () => {
+            const toggleButton = document.querySelector('.menu-toggle');
+            const links = document.querySelector('.links');
+            const dropdownContainer = document.querySelector('.dropdown-container');
+            const dropdownTrigger = dropdownContainer?.querySelector('a'); // The "REFERENZEN" link
+
+            // Toggle the main menu (hamburger)
+            toggleButton?.addEventListener('click', () => {
+                links?.classList.toggle('show');
+            });
+
+            // Toggle dropdown on mobile
+            dropdownTrigger?.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault(); // Prevent navigating to href
+                    dropdownContainer?.classList.toggle('open');
+                }
+            });
+
+            // Close dropdown if you click outside
+            document.addEventListener('click', (e) => {
+                const isClickInsideDropdown = dropdownContainer?.contains(e.target as any);
+                const isDropdownOpen = dropdownContainer?.classList.contains('open');
+
+                if (!isClickInsideDropdown && isDropdownOpen) {
+                    dropdownContainer?.classList.remove('open');
+                }
+            });
+        };
+        navActions();
+        </script>
 	</body>
 </html>
 
