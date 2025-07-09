@@ -10,15 +10,17 @@ const items: GalleryItem[] = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data
 <div class="gallery">
     {items.map((item) => (
         <div
-            class="item"
+            class={`item ${item.span > 1 ? 'wide' : ''}`}
             style={`grid-column: span ${item.span};`}
         >
-            <Image
-                inferSize={true}
-                class="image"
-                src={item.imageUrl}
-                alt={item.title}
-            />
+            <div class="image">
+                <Image
+                    inferSize={true}
+                    class="image"
+                    src={item.imageUrl}
+                    alt={item.title}
+                />
+            </div>
             <div class="item-body">
                 <p class="item-name">{item.title}</p>
                 <p class="item-desc">{item.description}</p>
