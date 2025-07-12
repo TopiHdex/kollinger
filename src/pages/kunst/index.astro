@@ -351,146 +351,160 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
 
+function isMobile() {
+    const isMobileDevice = /iphone|ipod|android|blackberry|mobile|windows phone/.test(navigator.userAgent.toLowerCase());
+    const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+    return isMobileDevice || screenWidth <= 1024; // 1024px as a general breakpoint for mobile
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis();
 
 lenis.on('scroll', ScrollTrigger.update);
-
 gsap.ticker.add((time) => {
     lenis.raf(time * 1000);
 });
 
 gsap.ticker.lagSmoothing(0);
 
-gsap.from(".on-enter", {
-    scrollTrigger: {
-        trigger: ".first-part",
-        start: "top 90%",
-        toggleActions: "play none none none",
-    },
-    y: 40,
-    opacity: 0,
-    stagger: 0.15,
-    duration: 1,
-    ease: "power2.out"
-});
+const desktopEffects = () => {
 
-gsap.to(".hero .parallax", {
-    scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-    },
-    y: 200,
-    filter: "blur(8px)",
-    scale: 1.01,
-});
-
-gsap.to(".first-part", {
-  scrollTrigger: {
-    trigger: ".first-part",
-    start: "top top",
-    end: "bottom top",
-    scrub: true
-  },
-  y: -100
-});
-
-gsap.from(".second-part .hoverable", {
-    scrollTrigger: {
-        trigger: ".second-part",
-        start: "top 65%",
-        end: "top 30%",
-        toggleActions: "play none none none",
-        scrub: true,
-    },
-    y: 40,
-    opacity: 0,
-    stagger: 0.15,
-    ease: "power2.out"
-});
-
-const something = gsap.timeline({
-    scrollTrigger: {
-        scrub: true,
-        pin: true,
-        trigger: ".second-part .something",
-        start: "50% 50%",
-        endTrigger: ".second-part",
-        end: "bottom -10%",
-    },
-});
-something.fromTo(".second-part .something", {
-    opacity: 0,
-    scale: 1,
-    duration: 1,
-}, { opacity: 1, scale: 1.5, duration: 1, }).to(".second-part .something", {
-    scale: 2,
-    opacity: 1,
-    duration: 2,
-}).to(".second-part .something", {
-    scale: 2.5,
-    opacity: 0,
-    duration: 1,
-});
-
-const tl = gsap.timeline({
-    scrollTrigger: {
-        scrub: true,
-        pin: true,
-        trigger: ".second-part .items",
-        start: "60% 40%",
-        endTrigger: ".second-part",
-        end: "bottom 80%",
-    },
-});
-tl.from(".second-part .more", {
-    y: 40,
-    opacity: 0,
-    stagger: 0.5,
-    ease: "power2.out"
-});
-
-gsap.to(".hero2 .parallax", {
-    scrollTrigger: {
-        trigger: ".hero2",
-        start: "top 80%",
-        end: "bottom top",
-        scrub: true
-    },
-    y: 100,
-});
-
-const tlMaterials = gsap.timeline({
-    scrollTrigger: {
-        scrub: true,
-        pin: true,
-        trigger: ".materials",
-        start: "50% 50%",
-        endTrigger: ".third-part",
-        end: "bottom 50%",
-    },
-});
-tlMaterials
-    .from(".materialsList .material", {
-        scale: 0.8,
-        stagger: -0.15,
-        ease: "power2.inOut"
+    gsap.from(".on-enter", {
+        scrollTrigger: {
+            trigger: ".first-part",
+            start: "top 90%",
+            toggleActions: "play none none none",
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 1,
+        ease: "power2.out"
     });
 
-const tlSlider = gsap.timeline({
-    scrollTrigger: {
-        scrub: true,
-        pin: true,
-        trigger: ".slider-cont",
-        start: "50% 50%",
-        endTrigger: ".fourth-part",
-        end: "bottom 50%",
-    },
-});
-tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in" });
+    gsap.to(".hero .parallax", {
+        scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        },
+        y: 200,
+        filter: "blur(8px)",
+        scale: 1.01,
+    });
+
+    gsap.to(".first-part", {
+        scrollTrigger: {
+            trigger: ".first-part",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        },
+        y: -100
+    });
+
+    gsap.from(".second-part .hoverable", {
+        scrollTrigger: {
+            trigger: ".second-part",
+            start: "top 65%",
+            end: "top 30%",
+            toggleActions: "play none none none",
+            scrub: true,
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        ease: "power2.out"
+    });
+
+    const something = gsap.timeline({
+        scrollTrigger: {
+            scrub: true,
+            pin: true,
+            trigger: ".second-part .something",
+            start: "50% 50%",
+            endTrigger: ".second-part",
+            end: "bottom -10%",
+        },
+    });
+    something.fromTo(".second-part .something", {
+        opacity: 0,
+        scale: 1,
+        duration: 1,
+    }, { opacity: 1, scale: 1.5, duration: 1, }).to(".second-part .something", {
+            scale: 2,
+            opacity: 1,
+            duration: 2,
+        }).to(".second-part .something", {
+            scale: 2.5,
+            opacity: 0,
+            duration: 1,
+        });
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            scrub: true,
+            pin: true,
+            trigger: ".second-part .items",
+            start: "60% 40%",
+            endTrigger: ".second-part",
+            end: "bottom 80%",
+        },
+    });
+    tl.from(".second-part .more", {
+        y: 40,
+        opacity: 0,
+        stagger: 0.5,
+        ease: "power2.out"
+    });
+
+    gsap.to(".hero2 .parallax", {
+        scrollTrigger: {
+            trigger: ".hero2",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true
+        },
+        y: 100,
+    });
+
+    const tlMaterials = gsap.timeline({
+        scrollTrigger: {
+            scrub: true,
+            pin: true,
+            trigger: ".materials",
+            start: "50% 50%",
+            endTrigger: ".third-part",
+            end: "bottom 50%",
+        },
+    });
+    tlMaterials
+        .from(".materialsList .material", {
+            scale: 0.8,
+            stagger: -0.15,
+            ease: "power2.inOut"
+        });
+
+    const tlSlider = gsap.timeline({
+        scrollTrigger: {
+            scrub: true,
+            pin: true,
+            trigger: ".slider-cont",
+            start: "50% 50%",
+            endTrigger: ".fourth-part",
+            end: "bottom 50%",
+        },
+    });
+    tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in" });
+};
+
+if (isMobile()) {
+} else {
+    desktopEffects();
+}
 </script>
 
 <style>
