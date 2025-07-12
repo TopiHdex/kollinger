@@ -505,6 +505,49 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in"
     }
 }
 
+.header {
+    position: relative;
+    font-size: 4rem;
+    font-weight: 300;
+    text-align: end;
+    padding: 3rem 0;
+    height: 75px;
+    margin: 0;
+
+    span {
+        background-color: white;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        padding: 0 1.75rem;
+        height: 75px;
+        font-weight: 600;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 0px;
+        width: 100%;
+        border-bottom: 1px solid black;
+        margin: auto 0;
+    }
+
+    &.left {
+        text-align: start;
+
+        span {
+            right: unset;
+            left: 0;
+        }
+    }
+}
+
 .first-part {
     display: grid;
     grid-template-columns: 764px 1fr;
@@ -554,6 +597,84 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in"
             margin-left: auto;
             display: block;
         }
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+    .hero video {
+        height: unset;
+    }
+
+    .first-part {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        margin-top: 0;
+    }
+
+    .left, .right {
+        text-align: start !important;
+    }
+
+    .right {
+        padding: 0 2rem 2rem 2rem !important;
+    }
+
+    .header {
+        font-size: 3rem !important;
+        padding: 2rem 0 !important;
+    }
+
+    .header span {
+        padding: 0 1rem !important;
+        height: 90px;
+    }
+
+    .right img {
+        width: 80% !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    .left {
+        padding: 0 1rem;
+    }
+
+    .left p {
+        font-size: 1.4rem !important;
+    }
+
+    .right p {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Mobile-first layout for small screens */
+@media (max-width: 600px) {
+    .header {
+        font-size: 2.5rem !important;
+    }
+
+    .first-part {
+        gap: 1rem !important;
+    }
+
+    .left p, .right p {
+        font-size: 1.3rem !important;
+    }
+
+    .right img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .right {
+        padding: 0 1rem 1.5rem 1rem !important;
+    }
+
+    .left {
+        align-items: flex-start !important;
+        text-align: start !important;
     }
 }
 
@@ -814,49 +935,6 @@ tlSlider.fromTo( ".slider", { xPercent: 30 }, { xPercent: -50, ease: "power1.in"
             .more {
                 line-height: 1.625rem;
             }
-        }
-    }
-}
-
-.header {
-    position: relative;
-    font-size: 4rem;
-    font-weight: 300;
-    text-align: end;
-    padding: 3rem 0;
-    height: 75px;
-    margin: 0;
-
-    span {
-        background-color: white;
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-        padding: 0 1.75rem;
-        height: 75px;
-        font-weight: 600;
-    }
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        height: 0px;
-        width: 100%;
-        border-bottom: 1px solid black;
-        margin: auto 0;
-    }
-
-    &.left {
-        text-align: start;
-
-        span {
-            right: unset;
-            left: 0;
         }
     }
 }
