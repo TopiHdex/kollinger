@@ -24,7 +24,7 @@ import Signature from '../../assets/images/signature.png';
 
 <Layout>
     <div class="hero">
-        <video class="image parallax" autoplay muted loop>
+        <video class="image parallax" autoplay muted loop playsinline>
             <source src="https://occ87lmc8c.ufs.sh/f/amuZeWyiXfpxXfHjg5bbHsP3C5tyvgx2ETmcLdIflAGwkZYi" type="video/mp4">
         </video>
     </div>
@@ -357,7 +357,7 @@ function isMobile() {
     return isMobileDevice;
 }
 
-const desktopEffects = () => {
+const setupScroller = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis();
@@ -368,7 +368,10 @@ const desktopEffects = () => {
     });
 
     gsap.ticker.lagSmoothing(0);
+};
 
+const desktopEffects = () => {
+    setupScroller();
     gsap.from(".on-enter", {
         scrollTrigger: {
             trigger: ".first-part",
@@ -615,7 +618,7 @@ if (isMobile()) {
 /* Mobile responsiveness */
 @media (max-width: 1024px) {
     .hero video {
-        height: unset;
+        height: 60vh;
     }
 
     .first-part {
