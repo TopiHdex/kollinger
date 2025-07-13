@@ -96,12 +96,25 @@
     }
     
     /* Responsive breakpoints */
-    @media (max-width: 1020px) {
+    @media (max-width: 1024px) {
       .item.wide {
         grid-column: span 1 !important;
 
         .image {
-          padding-bottom: calc(100% * 3 / 2); /* 2:3 ratio => 66.67% height */
+          padding-bottom: 0 !important;
+
+        }
+      }
+      .wide {
+        .image {
+          height: unset !important;
+          width: 100% !important;
+          aspect-ratio: 3 / 2 !important;
+        }
+        img {
+          width: 100% !important;
+          height: unset !important;
+          aspect-ratio: 3 / 2 !important;
         }
       }
     }
@@ -109,14 +122,6 @@
     @media (min-width: 1800px) {
       margin: 0 auto;
     }
-
-    // @media (max-width: 640px) {
-    //   grid-template-columns: 1fr;
-    //
-    //   .item.wide {
-    //     grid-column: span 1;
-    //   }
-    // }
   }
 }
 
