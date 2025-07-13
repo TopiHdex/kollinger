@@ -320,12 +320,12 @@ import Signature from '../../assets/images/signature.png';
                         und gewünschter Oberflächenwirkung.
                     </div>
                 </div>
-                <div style="color: #A48B66;font-size: 6rem;font-weight: 600;padding-top: 17rem;text-align: center;">
+                <div class="contact-p" style="color: #A48B66;font-size: 6rem;font-weight: 600;padding-top: 17rem;text-align: center;">
                     +49 730 891 9223
                     <br>
                     INFO@KOLLINGER-GUSS.DE
                 </div>
-                <div style="font-weight: bold;font-size: 1.5rem;text-align: center;padding: 3.5rem 1rem;margin-bottom: 7rem;">
+                <div class="final-contact" style="font-weight: bold;font-size: 1.5rem;text-align: center;padding: 3.5rem 1rem;margin-bottom: 7rem;">
                     DAIMLERSTRASSE 4
                     <br>
                     89275 ELCHINGEN
@@ -405,61 +405,6 @@ const desktopEffects = () => {
             scrub: true
         },
         y: -100
-    });
-
-    gsap.from(".second-part .hoverable", {
-        scrollTrigger: {
-            trigger: ".second-part",
-            start: "top 65%",
-            end: "top 30%",
-            toggleActions: "play none none none",
-            scrub: true,
-        },
-        y: 40,
-        opacity: 0,
-        stagger: 0.15,
-        ease: "power2.out"
-    });
-
-    const something = gsap.timeline({
-        scrollTrigger: {
-            scrub: true,
-            pin: true,
-            trigger: ".second-part .something",
-            start: "50% 50%",
-            endTrigger: ".second-part",
-            end: "bottom -10%",
-        },
-    });
-    something.fromTo(".second-part .something", {
-        opacity: 0,
-        scale: 1,
-        duration: 1,
-    }, { opacity: 1, scale: 1.5, duration: 1, }).to(".second-part .something", {
-            scale: 2,
-            opacity: 1,
-            duration: 2,
-        }).to(".second-part .something", {
-            scale: 2.5,
-            opacity: 0,
-            duration: 1,
-        });
-
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            scrub: true,
-            pin: true,
-            trigger: ".second-part .items",
-            start: "60% 40%",
-            endTrigger: ".second-part",
-            end: "bottom 80%",
-        },
-    });
-    tl.from(".second-part .more", {
-        y: 40,
-        opacity: 0,
-        stagger: 0.5,
-        ease: "power2.out"
     });
 
     gsap.to(".hero2 .parallax", {
@@ -697,54 +642,6 @@ if (isMobile()) {
     .left {
         align-items: flex-start !important;
         text-align: start !important;
-    }
-}
-
-.second-part {
-    padding-top: 150px;
-    height: 120vh;
-    position: relative;
-
-    .items {
-        display: grid;
-        grid-template-columns: 3fr 9fr;
-        gap: 2rem;
-        height: 135px;
-        padding: 0 4rem;
-
-        .items-title {
-            font-size: 4rem;
-            font-weight: 300;
-        }
-
-        .scrolable {
-            display: flex;
-            justify-content: space-evenly;
-        }
-
-        .hoverable {
-            flex-grow: 1;
-            border-right: 1px solid black;
-            padding: 1rem 0.5rem;
-            height: 1.125rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 1.75rem;
-
-            &:last-child {
-                border: 0;
-            }
-
-            .title {
-                font-weight: bold;
-            }
-
-            .more {
-                max-width: 190px;
-            }
-        }
     }
 }
 
@@ -1214,6 +1111,36 @@ if (isMobile()) {
             font-size: 2rem;
             font-weight: bold;
             padding: 2rem;
+        }
+    }
+
+    @media (max-height: 1024px) {
+        .header, .header span {
+            height: 185px !important;
+        }
+
+        .hero2 img {
+            transform: none !important;
+        }
+
+        .prozesse-left {
+            display: none !important;
+        }
+
+        .prozesse-info {
+            padding: 0 1rem !important;
+            margin: 0 !important;
+        }
+
+        .contact-p {
+            font-size: 2.5rem !important;
+            padding-top: 3rem !important;
+        }
+
+        .final-contact {
+            margin-bottom: 3rem !important;
+            padding-top: 3rem !important;
+            padding-bottom: 0 !important;
         }
     }
 }
