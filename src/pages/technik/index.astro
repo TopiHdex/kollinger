@@ -28,7 +28,7 @@ import Transparent from '../../assets/images/transparent.png';
 
 <Layout>
     <div class="hero">
-        <video class="image parallax" autoplay muted loop>
+        <video class="image parallax" autoplay muted loop playsinline>
             <source src="https://occ87lmc8c.ufs.sh/f/amuZeWyiXfpxcNcO03IdezhJZtWMwjDGxRNo8Lkp3F7lXqfy" type="video/mp4">
         </video>
     </div>
@@ -414,87 +414,83 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
 
-gsap.registerPlugin(ScrollTrigger);
+function isMobile() {
+    const isMobileDevice = /Mobi/i.test(window.navigator.userAgent)
+    console.log(isMobileDevice, window.navigator.userAgent);
+    return isMobileDevice;
+}
 
-const lenis = new Lenis();
+const setupScroller = () => {
+    gsap.registerPlugin(ScrollTrigger);
 
-lenis.on('scroll', ScrollTrigger.update);
+    const lenis = new Lenis();
 
-gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-});
-
-gsap.ticker.lagSmoothing(0);
-
-gsap.from(".on-enter", {
-    scrollTrigger: {
-        trigger: ".first-part",
-        start: "top 90%",
-        toggleActions: "play none none none",
-    },
-    y: 40,
-    opacity: 0,
-    stagger: 0.15,
-    duration: 1,
-    ease: "power2.out"
-});
-
-const tlMaterials = gsap.timeline({
-    scrollTrigger: {
-        scrub: true,
-        pin: true,
-        trigger: ".materials",
-        start: "50% 50%",
-        endTrigger: ".third-part",
-        end: "bottom 80%",
-    },
-});
-tlMaterials
-    .from(".materialsList .material", {
-        scale: 0.8,
-        stagger: -0.15,
-        ease: "power2.inOut"
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
     });
 
+    gsap.ticker.lagSmoothing(0);
+};
 
-gsap.to(".first-part", {
-    scrollTrigger: {
-        trigger: ".first-part",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-    },
-    y: -100
-});
-gsap.to(".hero2 .parallax", {
-    scrollTrigger: {
-        trigger: ".hero2",
-        start: "top 80%",
-        end: "bottom top",
-        scrub: true
-    },
-    y: 100,
-});
+const setupDektop = () => {
+    setupScroller();
+
+    gsap.from(".on-enter", {
+        scrollTrigger: {
+            trigger: ".first-part",
+            start: "top 90%",
+            toggleActions: "play none none none",
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 1,
+        ease: "power2.out"
+    });
+
+    const tlMaterials = gsap.timeline({
+        scrollTrigger: {
+            scrub: true,
+            pin: true,
+            trigger: ".materials",
+            start: "50% 50%",
+            endTrigger: ".third-part",
+            end: "bottom 80%",
+        },
+    });
+    tlMaterials
+        .from(".materialsList .material", {
+            scale: 0.8,
+            stagger: -0.15,
+            ease: "power2.inOut"
+        });
 
 
-// const tl = gsap.timeline({
-//     scrollTrigger: {
-//         scrub: true,
-//         pin: true,
-//         trigger: ".leistungen",
-//         start: "50% 50%",
-//         endTrigger: ".fifth-part",
-//         end: "bottom 80%",
-//     },
-// });
-// const video = document.querySelector("#scroll-video");
-// if (video) {
-//     video.pause();
-//     tl.to(video, {
-//         currentTime: video.duration,
-//         ease: "power1.inOut"
-//     });
-// }
+    gsap.to(".first-part", {
+        scrollTrigger: {
+            trigger: ".first-part",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        },
+        y: -100
+    });
+    gsap.to(".hero2 .parallax", {
+        scrollTrigger: {
+            trigger: ".hero2",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true
+        },
+        y: 100,
+    });
+};
+
+if (isMobile()) {
+} else {
+    setupDektop();
+}
 
 </script>
 
@@ -567,51 +563,88 @@ gsap.to(".hero2 .parallax", {
     }
 }
 
-.second-part {
-    padding-top: 150px;
-    height: 120vh;
-    position: relative;
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+    .hero video {
+        height: 60vh;
+    }
 
-    .items {
-        display: grid;
-        grid-template-columns: 3fr 9fr;
-        gap: 2rem;
-        height: 135px;
-        padding: 0 4rem;
+    .first-part {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        margin-top: 0;
+    }
 
-        .items-title {
-            font-size: 4rem;
-            font-weight: 300;
-        }
+    .left, .right {
+        text-align: start !important;
+    }
 
-        .scrolable {
-            display: flex;
-            justify-content: space-evenly;
-        }
+    .right {
+        padding: 0 2rem 2rem 2rem !important;
+    }
 
-        .hoverable {
-            flex-grow: 1;
-            border-right: 1px solid black;
-            padding: 1rem 0.5rem;
-            height: 1.125rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 1.75rem;
+    .header {
+        font-size: 3rem !important;
+        padding: 2rem 0 !important;
+    }
 
-            &:last-child {
-                border: 0;
-            }
+    .header::before {
+        display: none;
+    }
 
-            .title {
-                font-weight: bold;
-            }
+    .header span {
+        padding: 0 1rem !important;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-            .more {
-                max-width: 190px;
-            }
-        }
+    .right img {
+        width: 80% !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    .left {
+        padding: 0 1rem;
+    }
+
+    .left p {
+        font-size: 1.4rem !important;
+    }
+
+    .right p {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Mobile-first layout for small screens */
+@media (max-width: 600px) {
+    .header {
+        font-size: 2.5rem !important;
+    }
+
+    .first-part {
+        gap: 1rem !important;
+    }
+
+    .left p, .right p {
+        font-size: 1.3rem !important;
+    }
+
+    .right img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .right {
+        padding: 0 1rem 1.5rem 1rem !important;
+    }
+
+    .left {
+        align-items: flex-start !important;
+        text-align: start !important;
     }
 }
 
@@ -642,6 +675,40 @@ gsap.to(".hero2 .parallax", {
                 .name {
                     font-weight: bold;
                     text-align: center;
+                }
+            }
+        }
+    }
+
+    /* Styles for max-width: 600px (Mobile) */
+    @media (max-width: 600px) {
+        height: auto !important;
+
+        .materials {
+            .materialsList {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+                gap: 1rem !important;
+                padding: 0 1.75rem !important;
+
+                .material {
+                    width: 100% !important;
+
+                    .materialImg {
+                        width: 100% !important;
+                        aspect-ratio: 1 / 1 !important;
+
+                        img {
+                            width: 100% !important;
+                            height: 100% !important;
+                            object-fit: cover !important;
+                        }
+                    }
+
+                    .name {
+                        font-weight: bold !important;
+                        text-align: center !important;
+                        font-size: 1rem !important;
+                    }
                 }
             }
         }
@@ -697,6 +764,45 @@ gsap.to(".hero2 .parallax", {
                 border-left: 1px solid #000;
                 font-size: 1.125rem;
                 line-height: 1.5;
+            }
+        }
+    }
+
+     @media (max-width: 1024px) {
+        padding: 0px 1rem !important;
+        gap: 1.5rem !important;
+        flex-direction: column;
+        margin-top: 1.5rem;
+
+        .left {
+            text-align: start !important;
+
+            .more-materials-title {
+                font-size: 1.25rem !important;
+            }
+
+            .more-materials-extra {
+                font-size: 1rem !important;
+            }
+        }
+
+        .right {
+            display: grid !important;
+            gap: 1rem !important;
+            grid-template-columns: 1fr 1fr;
+
+            .materials-section {
+                min-width: unset !important;
+                display: block !important;
+
+                .name {
+                    font-size: 1.125rem !important;
+                }
+
+                .items {
+                    font-size: 1rem !important;
+                    line-height: 1.4 !important;
+                }
             }
         }
     }
@@ -830,6 +936,26 @@ gsap.to(".hero2 .parallax", {
             }
         }
     }
+
+    @media (max-width: 1024px) {
+        .hero2 {
+            transform: none !important;
+        }
+
+        .info {
+            grid-template-columns: 1fr !important;
+
+            .info-right {
+                width: 100% !important;
+                padding: 0 0.5rem;
+                box-sizing: border-box;
+            }
+
+            video {
+                max-width: 100%;
+            }
+        }
+    }
 }
 
 .kompetenzen {
@@ -881,6 +1007,9 @@ gsap.to(".hero2 .parallax", {
                 }
             }
         }
+    }
+
+    @media (max-width: 1024px) {
     }
 }
 
