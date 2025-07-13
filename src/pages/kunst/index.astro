@@ -1046,6 +1046,101 @@ if (isMobile()) {
             }
         }
     }
+
+    /* Styles for max-width: 1024px (Tablet and Small Desktop) */
+    @media (max-width: 1024px) {
+        padding-top: 0 !important;
+
+        .leistungen {
+            .info {
+                padding: 0.5rem;
+                grid-template-columns: 1fr !important
+
+                img.leistungen-img {
+                    height: 400px !important;
+                }
+
+                .leistungen-right {
+                    padding-right: 0 !important;
+                    width: 100% !important;
+                    height: auto !important;
+                }
+
+                .info-right {
+                    .info-head {
+                        font-size: 1.2rem !important;
+                    }
+
+                    .see-more {
+                        font-size: 1rem !important;
+                        flex-direction: column !important;
+
+                        .arrow {
+                            height: 35px !important;
+                            width: 25px !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .scrolable {
+            grid-template-columns: repeat(2, 1fr) !important;
+            margin-top: 3rem;
+
+            .hoverable::after {
+                display: none;
+            }
+        }
+
+        .more-info-title {
+            padding-top: 1rem !important;
+            font-size: 1.5rem;
+        }
+    }
+
+    /* Styles for max-width: 600px (Mobile) */
+    @media (max-width: 600px) {
+        .leistungen {
+            .info {
+                grid-template-columns: 1fr !important;
+
+                img.leistungen-img {
+                    height: 300px !important;
+                }
+
+                .leistungen-right {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+
+                .info-right {
+                    .info-head {
+                        font-size: 1rem !important;
+                    }
+
+                    .see-more {
+                        font-size: 0.9rem !important;
+                        flex-direction: row !important;
+                        justify-content: flex-start !important;
+
+                        .arrow {
+                            height: 30px !important;
+                            width: 20px !important;
+                        }
+
+                        a {
+                            font-size: 0.9rem !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .scrolable {
+            grid-template-columns: 1fr !important;
+        }
+    }
 }
 
 .sub-header {
