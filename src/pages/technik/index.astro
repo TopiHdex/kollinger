@@ -266,7 +266,7 @@ import Transparent from '../../assets/images/transparent.png';
                 </div>
             </div>
             <div class="card">
-                <div class="left">
+                <div class="left transparent">
                     <Image src={Transparent} alt="1" />
                 </div>
                 <div class="center">
@@ -384,12 +384,12 @@ import Transparent from '../../assets/images/transparent.png';
     <section class="final" id="kontakt">
         <div class="capped">
             <div class="prozesse">
-                <div style="color: #284590;font-size: 6rem;font-weight: 600;padding-top: 10rem;text-align: center;">
+                <div class="contact-p" style="color: #284590;font-size: 6rem;font-weight: 600;padding-top: 10rem;text-align: center;">
                     +49 730 891 9223
                     <br>
                     INFO@KOLLINGER-GUSS.DE
                 </div>
-                <div style="font-weight: bold;font-size: 1.5rem;text-align: center;padding: 3.5rem 1rem;margin-bottom: 7rem;">
+                <div class="final-contact" style="font-weight: bold;font-size: 1.5rem;text-align: center;padding: 3.5rem 1rem;margin-bottom: 7rem;">
                     DAIMLERSTRASSE 4
                     <br>
                     89275 ELCHINGEN
@@ -588,8 +588,12 @@ if (isMobile()) {
         padding: 2rem 0 !important;
     }
 
-    .header::before {
-        display: none;
+    .sub-header {
+        padding: 0 1rem !important;
+    }
+
+     .header::before {
+        display: none !important;
     }
 
     .header span {
@@ -889,6 +893,17 @@ if (isMobile()) {
             }
         }
     }
+
+    @media (max-width: 1024px) {
+        .slider-bg {
+            padding: 1rem !important;
+        }
+
+        .slider {
+            grid-template-columns: 1fr !important;
+            padding: 0 !important;
+        }
+    }
 }
 
 .fifth-part {
@@ -1010,6 +1025,41 @@ if (isMobile()) {
     }
 
     @media (max-width: 1024px) {
+        .header {
+            span {
+                height: 40px;
+            }
+        }
+
+        .cards {
+            .card {
+                height: auto;
+                grid-template-columns: 1fr !important;
+
+                img {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+
+                .center, .left {
+                    height: auto !important;
+                }
+
+                .left {
+                    padding: 0;
+
+                    &.transparent {
+                        display: none;
+                    }
+                }
+
+                .right {
+                    .title {
+                        padding-top: 1rem !important;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -1098,6 +1148,19 @@ if (isMobile()) {
             font-size: 2rem;
             font-weight: bold;
             padding: 2rem;
+        }
+    }
+
+    @media (max-height: 1024px) {
+        .contact-p {
+            font-size: 2.5rem !important;
+            padding-top: 3rem !important;
+        }
+
+        .final-contact {
+            margin-bottom: 3rem !important;
+            padding-top: 3rem !important;
+            padding-bottom: 0 !important;
         }
     }
 }
