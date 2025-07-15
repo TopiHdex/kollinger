@@ -53,7 +53,27 @@ const isKontakt = urlPath.includes('/kontakt');
             </div>
         </nav>
 		<slot />
-        <footer>
+        <footer id="footer-desktop">
+            <div style="display: flex;gap:1rem;">
+                <Image class="kollingerIcon" src={KollingerIcon} alt="Kollinger Logo" />
+                <div class="social">
+                    <p>FOLGT UNS</p>
+                    <a href="">
+                        <Image class="social-icon" src={Insta} alt="Instagram Icon" />
+                    </a>
+                    <a href="">
+                        <Image class="social-icon" src={YouTube} alt="YouTube Icon" />
+                    </a>
+                </div>
+            </div>
+            <div class="links">
+                <a href="/datenschutz-und-impressum">Datenschutz</a>
+                <a href="/datenschutz-und-impressum">Impressum</a>
+                <a href="/datenschutz-und-impressum#AGBs">AGBs</a>
+            </div>
+            <p style="text-align: end;">© 2025 Kollinger | Webdesign by RADOX</p>
+        </footer>
+        <footer id="footer-mobile">
             <div style="display: flex;gap:1rem;">
                 <Image class="kollingerIcon" src={KollingerIcon} alt="Kollinger Logo" />
                 <div class="social">
