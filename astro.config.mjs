@@ -13,4 +13,12 @@ export default defineConfig({
     image: {
         remotePatterns: [{ protocol: "https" }],
     },
+    redirects: {
+        '/leistungen': '/',
+        '/referenzen': '/',
+        '/datenschutz': '/datenschutz-und-impressum',
+        '/cookie-policy-eu': '/datenschutz-und-impressum',
+        '/Prozesse': '/',
+        '/leistungen/prozesse/': '/',
+    },
 });
