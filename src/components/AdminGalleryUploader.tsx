@@ -10,7 +10,16 @@ import "./AdminGalleryUploader.scss";
 import { db, storage, type GalleryItem } from '../lib/firebaseClient';
 
 
-const ALL_POSITIONS = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA", "cB", "cC"];
+const ALL_POSITIONS = [
+    'c0', 'c1', 'c2', 'c3', 'c4',
+    'c5', 'c6', 'c7', 'c8', 'c9',
+    'cA', 'cB', 'cC', 'cD', 'cE',
+    'cF', 'cG', 'cH', 'cI', 'cJ',
+    'cK', 'cL', 'cM', 'cN', 'cO',
+    'cP', 'cQ', 'cR', 'cS', 'cT',
+    'cU', 'cV', 'cW', 'cX', 'cY',
+    'cZ'
+];
 
 export default function AdminGalleryUploader() {
     const [title, setTitle] = useState("");
@@ -31,8 +40,7 @@ export default function AdminGalleryUploader() {
             } as GalleryItem));
 
             // Sort by position for consistent layout
-            const POSITION_ORDER = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "cA", "cB", "cC"];
-            const sorted = POSITION_ORDER
+            const sorted = ALL_POSITIONS
                 .map((pos) => items.find((item) => item.position === pos))
                 .filter(Boolean) as GalleryItem[];
 
@@ -173,9 +181,8 @@ export default function AdminGalleryUploader() {
                                         }
                                     }}
                                     style={{
-                                        gridColumn: `span ${
-                                            isSelected ? columnSpan : existing?.span || 1
-                                        }`
+                                        gridColumn: `span ${isSelected ? columnSpan : existing?.span || 1
+                                            }`
                                     }}
                                 >
                                     {existing ? (
@@ -193,10 +200,10 @@ export default function AdminGalleryUploader() {
                                             </button>
                                         </>
                                     ) : isSelected && previewImage ? (
-                                            <img src={previewImage} alt="Preview" />
-                                        ) : (
-                                                <span>{pos}</span>
-                                            )}
+                                        <img src={previewImage} alt="Preview" />
+                                    ) : (
+                                        <span>{pos}</span>
+                                    )}
                                 </div>
                             );
                         })}
@@ -211,8 +218,8 @@ export default function AdminGalleryUploader() {
                                 {editingItem ? (
                                     <>✏️ Editing image: <strong>{editingItem.title || editingItem.position}</strong></>
                                 ) : (
-                                        <>📤 Uploading new image at: <strong>{selectedPosition}</strong></>
-                                    )}
+                                    <>📤 Uploading new image at: <strong>{selectedPosition}</strong></>
+                                )}
                             </div>
                         )}
                         <form onSubmit={handleSubmit}>
