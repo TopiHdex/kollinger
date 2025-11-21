@@ -140,7 +140,7 @@ export default function AdminGalleryUploader() {
         const confirm = window.confirm("Are you sure you want to publish?");
         if (!confirm) return;
 
-        fetch('https://api.vercel.com/v1/integrations/deploy/prj_Az0b0vAg5ub2On8prkJaOAIp9fOu/iqnfhwU8qP', { method: 'POST' })
+        fetch('https://api.vercel.com/v1/integrations/deploy/prj_52XI6L0SL0DrhZ2moPAtiEkAqht1/SocrZj14ll', { method: 'POST' })
     };
 
     return (
